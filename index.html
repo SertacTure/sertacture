@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sertaç Türe — Muhasebe & Finans | Oyun & Doğa</title>
+<meta name="description" content="Sertaç Türe: Muhasebe ve Finans Sorumlusu. Ekran dışında bisiklet ve uzun yürüyüşler, ekran başında Valorant, PUBG, God of War ve FC 26.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --yesil:#2F3B33; --yesil-koyu:#25302A; --krem:#EDE6DA; --krem-acik:#F7F2E9;
+    --turuncu:#C97B4A; --turuncu-koyu:#3A2214; --metin:#5A5347; --metin-soluk:#8C7F6A; --sage:#8C9A8E;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--metin);background:var(--krem-acik);line-height:1.7}
+  img,svg{max-width:100%;display:block}
+  .hud{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase}
+
+  nav{position:sticky;top:0;z-index:50;background:rgba(47,59,51,.92);backdrop-filter:blur(8px);border-bottom:1px solid rgba(237,230,218,.12)}
+  .nav-ic{max-width:1060px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .logo{font-family:'Playfair Display',serif;font-size:20px;color:var(--krem);text-decoration:none}
+  .nav-linkler{display:flex;gap:20px;flex-wrap:wrap}
+  .nav-linkler a{color:var(--sage);text-decoration:none;font-size:13px;transition:color .2s}
+  .nav-linkler a:hover{color:var(--krem)}
+
+  header{background:var(--yesil);color:var(--krem);text-align:center;padding:96px 24px 84px;position:relative;overflow:hidden}
+  header::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 3px,rgba(0,0,0,.06) 3px 4px);pointer-events:none}
+  .hud-ust{color:var(--turuncu);margin-bottom:22px;display:block}
+  h1{font-family:'Playfair Display',serif;font-size:clamp(44px,8vw,76px);font-weight:500;color:var(--krem)}
+  .altbaslik{margin-top:14px;font-size:clamp(16px,2.4vw,20px);color:#C9B99F;max-width:560px;margin-left:auto;margin-right:auto}
+  .hero-gorsel{max-width:760px;margin:44px auto 0;border:1px solid rgba(237,230,218,.18);border-radius:10px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.35)}
+  .hero-gorsel svg,.hero-gorsel img{width:100%;aspect-ratio:16/9;object-fit:cover}
+
+  section{padding:84px 24px}
+  .ic{max-width:1060px;margin:0 auto}
+  .dar{max-width:660px;margin:0 auto;text-align:center}
+  .bolum-etiket{color:var(--turuncu);display:block;margin-bottom:14px;text-align:center}
+  h2{font-family:'Playfair Display',serif;font-size:clamp(30px,4.5vw,40px);font-weight:500;color:var(--yesil);text-align:center;margin-bottom:18px}
+  .bolum-aciklama{text-align:center;max-width:560px;margin:0 auto}
+  .krem-bg{background:var(--krem)}
+  .acik-bg{background:var(--krem-acik)}
+
+  .kartlar{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:44px}
+  .kart{background:#fff;border:1px solid #D9D2C5;border-radius:12px;overflow:hidden;transition:transform .25s ease,box-shadow .25s ease}
+  .kart:hover{transform:translateY(-5px);box-shadow:0 16px 36px rgba(47,59,51,.14)}
+  .kart-gorsel{aspect-ratio:16/9;overflow:hidden}
+  .kart-gorsel svg,.kart-gorsel img{width:100%;height:100%;object-fit:cover}
+  .kart-govde{padding:18px 20px 22px}
+  .kart .hud{color:var(--turuncu);font-size:10px;margin-bottom:8px;display:block}
+  .kart h3{font-size:18px;font-weight:600;color:#3B3630;margin-bottom:6px}
+  .kart p{font-size:15px;color:var(--metin)}
+
+  .is-kart{background:#fff;border:1px solid #D9D2C5;border-radius:12px;padding:26px 24px;text-align:left}
+  .is-kart .ikon{font-family:'JetBrains Mono',monospace;font-size:22px;color:var(--turuncu);margin-bottom:14px}
+  .is-kart h3{font-size:18px;font-weight:600;color:#3B3630;margin-bottom:8px}
+  .is-kart p{font-size:15px}
+
+  .galeri{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:44px}
+  .galeri figure{border-radius:8px;overflow:hidden;position:relative;background:#C9BBA4}
+  .galeri svg,.galeri img{aspect-ratio:16/9;width:100%;object-fit:cover;display:block}
+  .galeri figcaption{position:absolute;left:0;right:0;bottom:0;padding:24px 14px 10px;background:linear-gradient(transparent,rgba(37,48,42,.85));color:var(--krem);font-size:13px;opacity:0;transition:opacity .25s}
+  .galeri figure:hover figcaption{opacity:1}
+
+  .iletisim{background:var(--yesil);color:var(--krem);text-align:center}
+  .iletisim h2{color:var(--krem)}
+  .iletisim p{color:var(--sage);max-width:520px;margin:0 auto}
+  .buton{display:inline-block;margin-top:30px;background:var(--turuncu);color:var(--turuncu-koyu);text-decoration:none;font-weight:600;font-size:16px;padding:14px 34px;border-radius:8px;transition:transform .2s,box-shadow .2s}
+  .buton:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.3)}
+  .kimlikler{margin-top:26px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .kimlik{border:1px solid rgba(237,230,218,.25);border-radius:8px;padding:10px 18px;font-size:14px;color:var(--krem)}
+  .kimlik .hud{color:var(--turuncu);font-size:10px;display:block;margin-bottom:2px}
+
+  footer{background:var(--yesil-koyu);color:var(--sage);text-align:center;padding:26px 24px;font-size:13px}
+  footer .hud{color:var(--turuncu);font-size:10px}
+
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .kart,.buton,.galeri figcaption{transition:none}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-ic">
+    <a class="logo" href="#">Sertaç Türe</a>
+    <div class="nav-linkler">
+      <a href="#hakkimda">Hakkımda</a>
+      <a href="#is">İşim</a>
+      <a href="#doga">Doğa</a>
+      <a href="#oyunlar">Oyunlar</a>
+      <a href="#iletisim">İletişim</a>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <span class="hud hud-ust">▸ profil yüklendi</span>
+  <h1>Sertaç Türe</h1>
+  <p class="altbaslik">Gündüz rakamların peşinde, akşam oyunda — arada bisiklet ve uzun yürüyüşler.</p>
+
+  <!-- Kendi fotoğrafın hazır olunca bu svg'yi <img src="kapak.jpg"> ile değiştir -->
+  <div class="hero-gorsel">
+    <svg viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Gün batımında tepeler arasında kıvrılan yol">
+      <defs><linearGradient id="gok" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E8A968"/><stop offset=".55" stop-color="#C97B4A"/><stop offset="1" stop-color="#9A5A38"/></linearGradient></defs>
+      <rect width="640" height="360" fill="url(#gok)"/>
+      <circle cx="440" cy="120" r="52" fill="#F2D8A8"/>
+      <path d="M0 220 L120 150 L230 220 Z" fill="#4A5A4E"/>
+      <path d="M150 230 L290 130 L430 230 Z" fill="#3A4A40"/>
+      <path d="M370 235 L500 155 L640 235 Z" fill="#455548"/>
+      <rect y="230" width="640" height="130" fill="#2F3B33"/>
+      <path d="M300 360 C300 320 250 300 260 270 C268 246 330 250 320 360 Z" fill="#25302A"/>
+      <path d="M310 360 C310 322 268 300 276 272" stroke="#EDE6DA" stroke-width="4" stroke-dasharray="14 12" fill="none"/>
+      <circle cx="120" cy="300" r="16" fill="#25302A"/><circle cx="152" cy="300" r="16" fill="#25302A"/>
+      <circle cx="120" cy="300" r="12" fill="none" stroke="#8C9A8E" stroke-width="2"/><circle cx="152" cy="300" r="12" fill="none" stroke="#8C9A8E" stroke-width="2"/>
+      <path d="M120 300 L134 282 L152 300 M134 282 L130 276 M126 276 L136 276 M148 284 L152 300 M144 284 L154 284" stroke="#EDE6DA" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    </svg>
+  </div>
+</header>
+
+<section id="hakkimda" class="krem-bg">
+  <div class="dar">
+    <span class="hud bolum-etiket">▸ 01 · tanışma</span>
+    <h2>Hakkımda</h2>
+    <p>Merhaba, ben Sertaç. Muhasebe ve Finans Sorumlusu olarak çalışıyorum; rakamlarla, tablolarla ve raporlarla iç içe bir hayatım var. İşten çıkınca ise denge kuruyorum: bazen bisiklete atlayıp yollara düşüyorum, bazen uzun bir yürüyüşe çıkıyorum, bazen de kumandayı ya da klavyeyi kapıp oyun dünyasına dalıyorum. Bu site de bu iki yüzümü — işimi ve tutkularımı — tek çatı altında toplamak için var. Hoş geldin!</p>
+  </div>
+</section>
+
+<section id="is" class="acik-bg">
+  <div class="ic">
+    <span class="hud bolum-etiket">▸ 02 · mesai modu</span>
+    <h2>Neler yapıyorum</h2>
+    <p class="bolum-aciklama">Muhasebe ve Finans Sorumlusu — işin özü: rakamları anlamlı hale getirmek.</p>
+    <div class="kartlar">
+      <article class="is-kart"><div class="ikon">%</div><h3>Analiz</h3><p>Finansal verileri didik didik eder, rakamların arkasındaki hikayeyi ortaya çıkarırım.</p></article>
+      <article class="is-kart"><div class="ikon">▤</div><h3>Raporlama</h3><p>Karmaşık veriyi, karar vericilerin tek bakışta anlayacağı net raporlara dönüştürürüm.</p></article>
+      <article class="is-kart"><div class="ikon">✓</div><h3>Kontrol</h3><p>Süreçlerin ve kayıtların doğruluğunu denetler, işlerin sağlam yürüdüğünden emin olurum.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="doga" class="krem-bg">
+  <div class="ic">
+    <span class="hud bolum-etiket">▸ 03 · açık hava</span>
+    <h2>Ekran dışında</h2>
+    <p class="bolum-aciklama">Masa başının panzehiri: pedal ve patika.</p>
+    <div class="kartlar" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));max-width:760px;margin-left:auto;margin-right:auto;">
+
+      <article class="kart">
+        <div class="kart-gorsel">
+          <svg viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Yol kenarında bisiklet">
+            <rect width="640" height="360" fill="#A8B5A0"/>
+            <path d="M0 180 L160 100 L340 180 Z" fill="#8C9A8E"/>
+            <path d="M280 185 L460 90 L640 185 Z" fill="#7A8A7C"/>
+            <rect y="180" width="640" height="180" fill="#5F6F5E"/>
+            <rect y="250" width="640" height="110" fill="#4A5A4E"/>
+            <path d="M0 300 L640 300" stroke="#EDE6DA" stroke-width="5" stroke-dasharray="30 26"/>
+            <g stroke="#25302A" stroke-width="7" fill="none" stroke-linecap="round">
+              <circle cx="250" cy="255" r="46"/><circle cx="396" cy="255" r="46"/>
+              <path d="M250 255 L296 178 L360 178 L396 255 M296 178 L330 255 L250 255 M360 178 L352 160 M340 160 L368 160 M290 178 L282 158 M268 158 L296 158"/>
+            </g>
+            <circle cx="250" cy="255" r="7" fill="#C97B4A"/><circle cx="396" cy="255" r="7" fill="#C97B4A"/>
+          </svg>
+        </div>
+        <div class="kart-govde"><span class="hud">iki teker</span><h3>Bisiklet</h3><p>Pedala bastığım an kafam boşalır — rota fark etmez, yol olsun yeter.</p></div>
+      </article>
+
+      <article class="kart">
+        <div class="kart-gorsel">
+          <svg viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ormanda kıvrılan patika">
+            <rect width="640" height="360" fill="#D5C9B2"/>
+            <path d="M0 200 L140 110 L300 200 Z" fill="#8C9A8E"/>
+            <path d="M240 205 L420 95 L600 205 Z" fill="#7A8A7C"/>
+            <circle cx="540" cy="80" r="38" fill="#E8C888"/>
+            <rect y="200" width="640" height="160" fill="#5F6F5E"/>
+            <path d="M290 360 C290 320 250 305 265 275 C278 250 340 252 330 360 Z" fill="#C9B99F"/>
+            <g fill="#2F3B33">
+              <path d="M90 200 L110 150 L130 200 Z M100 230 L110 165 L120 230 Z"/>
+              <path d="M480 210 L505 145 L530 210 Z M492 245 L505 160 L518 245 Z"/>
+              <rect x="107" y="225" width="7" height="22"/><rect x="501" y="240" width="8" height="26"/>
+            </g>
+            <path d="M300 320 L312 300 M306 320 L306 296 M312 320 L300 302" stroke="#25302A" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="kart-govde"><span class="hud">adım adım</span><h3>Uzun yürüyüşler</h3><p>Düşüncelerimi en iyi toparladığım yer: uzun ve sakin bir yürüyüşün ortası.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="oyunlar" class="acik-bg">
+  <div class="ic">
+    <span class="hud bolum-etiket">▸ 04 · oyun modu</span>
+    <h2>Şu an oynadıklarım</h2>
+    <div class="kartlar">
+
+      <article class="kart">
+        <div class="kart-gorsel">
+          <svg viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Nişangah ve taktik şekiller">
+            <rect width="640" height="360" fill="#2A2E3A"/>
+            <path d="M0 360 L200 120 L260 360 Z" fill="#343948"/>
+            <path d="M420 360 L520 100 L640 360 Z" fill="#3A4052"/>
+            <path d="M120 360 L320 40 L380 360 Z" fill="#303546"/>
+            <g stroke="#C97B4A" stroke-width="6" fill="none" stroke-linecap="round">
+              <circle cx="320" cy="180" r="58"/>
+              <path d="M320 96 L320 136 M320 224 L320 264 M236 180 L276 180 M364 180 L404 180"/>
+            </g>
+            <circle cx="320" cy="180" r="8" fill="#EDE6DA"/>
+          </svg>
+        </div>
+        <div class="kart-govde"><span class="hud">rekabetçi</span><h3>Valorant</h3><p>Nişan, taktik ve klatch anları — rekabetin en keskin hali.</p></div>
+      </article>
+
+      <article class="kart">
+        <div class="kart-gorsel">
+          <svg viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Adaya inen paraşüt">
+            <rect width="640" height="360" fill="#9FB8C4"/>
+            <circle cx="120" cy="70" r="34" fill="#F2E6C8"/>
+            <path d="M0 300 Q160 260 320 300 T640 300 L640 360 L0 360 Z" fill="#5F8A96"/>
+            <path d="M180 320 Q320 280 480 320 L470 360 L190 360 Z" fill="#7A8A6C"/>
+            <path d="M250 130 Q320 84 390 130 L374 158 L266 158 Z" fill="#C97B4A"/>
+            <path d="M250 130 L308 210 M390 130 L332 210 M290 148 L316 210 M350 148 L324 210" stroke="#3A2214" stroke-width="3"/>
+            <rect x="306" y="208" width="28" height="30" rx="5" fill="#3A2214"/>
+          </svg>
+        </div>
+        <div class="kart-govde"><span class="hud">squad</span><h3>PUBG</h3><p>Arkadaşlarla düşülen haritalar, son bölgeye kalan nefesler.</p></div>
+      </article>
+
+      <article class="kart">
+        <div class="kart-gorsel">
+          <svg viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Karlı dağlar ve runik taşlar">
+            <rect width="640" height="360" fill="#3A4450"/>
+            <path d="M0 250 L170 90 L340 250 Z" fill="#55606E"/>
+            <path d="M170 90 L130 128 L170 118 L210 128 Z" fill="#EDE6DA"/>
+            <path d="M280 255 L470 60 L640 255 Z" fill="#606C7C"/>
+            <path d="M470 60 L424 106 L470 92 L516 106 Z" fill="#EDE6DA"/>
+            <rect y="250" width="640" height="110" fill="#2A323C"/>
+            <g fill="#4A5560"><path d="M120 250 L140 190 L175 195 L185 250 Z"/><path d="M420 255 L438 205 L468 208 L478 255 Z"/></g>
+            <g stroke="#C97B4A" stroke-width="4" stroke-linecap="round" fill="none">
+              <path d="M145 210 L160 210 M152 200 L152 235"/>
+              <path d="M442 222 L466 222 M454 214 L448 240 M454 214 L460 240"/>
+            </g>
+          </svg>
+        </div>
+        <div class="kart-govde"><span class="hud">hikaye</span><h3>God of War</h3><p>Kar, balta ve efsaneler — hikaye anlatımının zirvesi.</p></div>
+      </article>
+
+      <article class="kart">
+        <div class="kart-gorsel">
+          <svg viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Kuşbakışı futbol sahası ve top">
+            <rect width="640" height="360" fill="#4A7A50"/>
+            <g fill="#548558"><rect width="80" height="360"/><rect x="160" width="80" height="360"/><rect x="320" width="80" height="360"/><rect x="480" width="80" height="360"/></g>
+            <g stroke="#EDE6DA" stroke-width="4" fill="none">
+              <rect x="30" y="24" width="580" height="312"/>
+              <path d="M320 24 L320 336"/><circle cx="320" cy="180" r="56"/>
+              <rect x="30" y="110" width="86" height="140"/><rect x="524" y="110" width="86" height="140"/>
+            </g>
+            <circle cx="404" cy="150" r="24" fill="#F7F2E9"/>
+            <path d="M404 138 L415 146 L411 160 L397 160 L393 146 Z" fill="#25302A"/>
+          </svg>
+        </div>
+        <div class="kart-govde"><span class="hud">maç günü</span><h3>FC 26</h3><p>Akşamın klasiği: bir maç daha deyip sabahı bulmak.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="galeri" class="krem-bg">
+  <div class="ic">
+    <span class="hud bolum-etiket">▸ 05 · arşiv</span>
+    <h2>Kareler</h2>
+    <p class="bolum-aciklama">Şimdilik illüstrasyonlar — yakında buraya kendi karelerim gelecek: oyunlardan ekran görüntüleri, yollardan manzaralar.</p>
+    <div class="galeri">
+      <figure>
+        <svg viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Oyun kumandası"><rect width="640" height="360" fill="#2F3B33"/><path d="M200 150 Q210 120 250 120 L390 120 Q430 120 440 150 L470 240 Q476 276 444 282 Q416 286 398 254 L382 226 L258 226 L242 254 Q224 286 196 282 Q164 276 170 240 Z" fill="#C97B4A"/><circle cx="252" cy="172" r="11" fill="#3A2214"/><path d="M246 172 L258 172 M252 166 L252 178" stroke="#EDE6DA" stroke-width="3"/><circle cx="392" cy="160" r="8" fill="#EDE6DA"/><circle cx="392" cy="188" r="8" fill="#EDE6DA"/><circle cx="378" cy="174" r="8" fill="#EDE6DA"/><circle cx="406" cy="174" r="8" fill="#EDE6DA"/></svg>
+        <figcaption>Oyun modu: açık</figcaption>
+      </figure>
+      <figure>
+        <svg viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Dağ manzarası"><rect width="640" height="360" fill="#D5C9B2"/><circle cx="500" cy="90" r="40" fill="#E8A968"/><path d="M0 250 L180 80 L360 250 Z" fill="#5F6F5E"/><path d="M180 80 L146 114 L180 104 L214 114 Z" fill="#F7F2E9"/><path d="M280 255 L450 110 L620 255 Z" fill="#7A8A7C"/><rect y="250" width="640" height="110" fill="#4A5A4E"/></svg>
+        <figcaption>Yürüyüş rotasından</figcaption>
+      </figure>
+      <figure>
+        <svg viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bisiklet tekeri yakın plan"><rect width="640" height="360" fill="#EDE6DA"/><g stroke="#2F3B33" stroke-width="8" fill="none"><circle cx="320" cy="180" r="130"/><circle cx="320" cy="180" r="96"/></g><g stroke="#5A5347" stroke-width="4"><path d="M320 84 L320 276 M224 180 L416 180 M252 112 L388 248 M388 112 L252 248"/></g><circle cx="320" cy="180" r="18" fill="#C97B4A"/></svg>
+        <figcaption>İki teker, sonsuz yol</figcaption>
+      </figure>
+      <figure>
+        <svg viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Gece şehir silueti"><rect width="640" height="360" fill="#252A38"/><circle cx="520" cy="70" r="28" fill="#EDE6DA"/><g fill="#343948"><rect x="40" y="160" width="70" height="200"/><rect x="130" y="110" width="80" height="250"/><rect x="230" y="180" width="60" height="180"/><rect x="310" y="90" width="90" height="270"/><rect x="420" y="150" width="70" height="210"/><rect x="510" y="200" width="80" height="160"/></g><g fill="#C97B4A"><rect x="150" y="130" width="12" height="12"/><rect x="176" y="160" width="12" height="12"/><rect x="330" y="110" width="12" height="12"/><rect x="360" y="140" width="12" height="12"/><rect x="330" y="170" width="12" height="12"/><rect x="440" y="170" width="12" height="12"/><rect x="60" y="180" width="12" height="12"/><rect x="246" y="200" width="12" height="12"/></g></svg>
+        <figcaption>Gece vardiyası</figcaption>
+      </figure>
+      <figure>
+        <svg viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Orman patikası"><rect width="640" height="360" fill="#A8B5A0"/><g fill="#2F3B33"><path d="M60 240 L95 130 L130 240 Z"/><path d="M150 250 L190 110 L230 250 Z"/><path d="M420 250 L460 105 L500 250 Z"/><path d="M520 240 L555 135 L590 240 Z"/></g><g fill="#25302A"><rect x="91" y="235" width="9" height="30"/><rect x="185" y="245" width="10" height="34"/><rect x="455" y="245" width="10" height="34"/><rect x="551" y="235" width="9" height="30"/></g><rect y="264" width="640" height="96" fill="#5F6F5E"/><path d="M300 360 C300 330 270 316 282 292 C292 272 348 274 340 360 Z" fill="#C9B99F"/></svg>
+        <figcaption>Patika sessizliği</figcaption>
+      </figure>
+      <figure>
+        <svg viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Kulaklık"><rect width="640" height="360" fill="#3A4450"/><path d="M210 230 L210 170 Q210 70 320 70 Q430 70 430 170 L430 230" stroke="#EDE6DA" stroke-width="14" fill="none" stroke-linecap="round"/><rect x="180" y="200" width="52" height="86" rx="20" fill="#C97B4A"/><rect x="408" y="200" width="52" height="86" rx="20" fill="#C97B4A"/><path d="M416 280 Q400 320 350 322 L330 322" stroke="#EDE6DA" stroke-width="8" fill="none" stroke-linecap="round"/><circle cx="322" cy="322" r="9" fill="#EDE6DA"/></svg>
+        <figcaption>Takım sesi hazır</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="iletisim" class="iletisim">
+  <span class="hud bolum-etiket">▸ 06 · bağlantı kur</span>
+  <h2>İletişime geç</h2>
+  <p>İş için, birlikte pedallamak için ya da akşamki maça takım arkadaşı olmak için — kapım açık.</p>
+  <!-- DEĞİŞTİR: mailto kısmına kendi e-posta adresini yaz -->
+  <a class="buton" href="mailto:adresin@gmail.com">Bana ulaş</a>
+  <div class="kimlikler">
+    <div class="kimlik"><span class="hud">discord</span>Sertacture</div>
+    <div class="kimlik"><span class="hud">steam</span>Sertacture</div>
+  </div>
+</section>
+
+<footer>
+  <span class="hud">▸ oturum kaydedildi</span><br>
+  © 2026 Sertaç Türe · www.sertacture.com
+</footer>
+
+</body>
+</html>
