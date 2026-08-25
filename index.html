@@ -78,7 +78,8 @@
   .buton{display:inline-block;margin-top:30px;background:var(--turuncu);color:var(--turuncu-koyu);text-decoration:none;font-weight:600;font-size:16px;padding:14px 34px;border-radius:8px;transition:transform .2s,box-shadow .2s}
   .buton:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.3)}
   .kimlikler{margin-top:26px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-  .kimlik{border:1px solid rgba(237,230,218,.25);border-radius:8px;padding:10px 18px;font-size:14px;color:var(--krem)}
+  .kimlik{border:1px solid rgba(237,230,218,.25);border-radius:8px;padding:10px 18px;font-size:14px;color:var(--krem);text-decoration:none;display:inline-block;cursor:pointer;transition:border-color .2s,transform .2s;background:none;font-family:inherit}
+  .kimlik:hover{border-color:var(--turuncu);transform:translateY(-2px)}
   .kimlik .hud{color:var(--turuncu);font-size:10px;display:block;margin-bottom:2px}
 
   footer{background:var(--yesil-koyu);color:var(--sage);text-align:center;padding:26px 24px;font-size:13px}
@@ -314,11 +315,11 @@
   <span class="hud bolum-etiket">▸ 06 · bağlantı kur</span>
   <h2>İletişime geç</h2>
   <p>İş için, birlikte pedallamak için ya da akşamki maça takım arkadaşı olmak için — kapım açık.</p>
-  <!-- DEĞİŞTİR: mailto kısmına kendi e-posta adresini yaz -->
-  <a class="buton" href="mailto:adresin@gmail.com">Bana ulaş</a>
+  <a class="buton" href="mailto:sertac.ture@hotmail.com">Bana ulaş</a>
   <div class="kimlikler">
-    <div class="kimlik"><span class="hud">discord</span>Sertacture</div>
-    <div class="kimlik"><span class="hud">steam</span>Sertacture</div>
+    <a class="kimlik" href="https://kick.com/lumosnox" target="_blank" rel="noopener"><span class="hud">kick · yayın</span>lumosnox</a>
+    <a class="kimlik" href="https://steamcommunity.com/id/Sertacture" target="_blank" rel="noopener"><span class="hud">steam</span>Sertacture</a>
+    <button class="kimlik" type="button" onclick="navigator.clipboard.writeText('Sertacture').then(()=>{const e=this.querySelector('.kk');const t=e.textContent;e.textContent='Kopyalandı!';setTimeout(()=>e.textContent=t,1600)})"><span class="hud">discord · tıkla kopyala</span><span class="kk">Sertacture</span></button>
   </div>
 </section>
 
