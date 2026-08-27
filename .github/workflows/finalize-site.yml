@@ -16,14 +16,24 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Build final files
+      - name: Build and validate final files
         shell: bash
         run: |
           set -euo pipefail
-          base64 -d < .site-payload/index.b64 | gzip -d > index.html
+          cat .site-payload/idx.00.b64 .site-payload/idx.01.b64 .site-payload/idx.02.b64 .site-payload/idx.03.b64 | base64 -d | gzip -d > index.html
           base64 -d < .site-payload/404.b64 | gzip -d > 404.html
           base64 -d < .site-payload/favicon.b64 | gzip -d > favicon.svg
-          cat .site-payload/og.*.b64 | base64 -d | gzip -d > og_sertacture.png
+          cat .site-payload/og.00.b64 .site-payload/og.01.b64 .site-payload/ogfix.00.b64 .site-payload/ogfix.01.b64 .site-payload/ogfix.02.b64 .site-payload/og.03.b64 | base64 -d | gzip -d > og_sertacture.png
+
+          test "$(wc -c < index.html)" -eq 59471
+          test "$(wc -c < 404.html)" -eq 2098
+          test "$(wc -c < favicon.svg)" -eq 227
+          test "$(wc -c < og_sertacture.png)" -eq 55795
+          grep -q 'assets/clip_01.mp4' index.html
+          grep -q 'lang-switch' index.html
+          ! grep -q 'legacy.html' index.html
+          ! grep -q 'clip-loader.js' index.html
+
           rm -f legacy.html clip-loader.js
           rm -rf .site-payload
           rm -f .github/workflows/finalize-site.yml
