@@ -1,9 +1,970 @@
-<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sertaç Türe</title><style>html,body{margin:0;background:#0e1411;color:#fff;font-family:system-ui,sans-serif}.boot{min-height:100vh;display:grid;place-items:center}.boot span{opacity:.7}</style></head><body><div class="boot"><span>Site hazırlanıyor…</span></div><script>
-const CLIP_STYLE=`<style>
-.clips-v9{width:min(1180px,calc(100% - 44px));margin:0 auto;padding:34px 0 10px;color:#fff}.clips-v9-head{display:flex;align-items:end;justify-content:space-between;gap:28px;margin-bottom:20px;padding-top:28px;border-top:1px solid rgba(255,255,255,.12)}.clips-v9 .eyebrow{display:inline-flex;align-items:center;gap:10px;font:600 11px/1 'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.16em;color:#f0b47e}.clips-v9 h3{font-family:'Playfair Display',serif;font-size:clamp(30px,4vw,52px);line-height:1;margin:10px 0 0}.clips-v9-head p{max-width:470px;margin:0;color:rgba(255,255,255,.62);line-height:1.75}.clip-v9-card{position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.10);border-radius:28px;background:#151d18;box-shadow:0 34px 90px rgba(0,0,0,.30)}.clip-v9-frame{aspect-ratio:16/9;background:#050706;overflow:hidden}.clip-v9-frame video{width:100%;height:100%;object-fit:contain;background:#050706;display:block}.clip-v9-meta{display:flex;justify-content:space-between;gap:20px;align-items:center;padding:18px 22px}.clip-v9-meta strong{font-size:16px}.clip-v9-meta span{font:500 12px/1.3 'JetBrains Mono',monospace;color:#a0aba1;letter-spacing:.04em}.lang-switch{display:flex;align-items:center;gap:2px;padding:3px;border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.035)}.lang-switch button{border:0;background:transparent;color:var(--muted);font:800 10px/1 'Manrope',sans-serif;letter-spacing:.04em;padding:7px 8px;border-radius:7px;cursor:pointer;transition:.2s ease}.lang-switch button:hover{color:var(--ink)}.lang-switch button.active{background:var(--accent);color:#20150f}@media(max-width:760px){.clips-v9{width:min(100% - 28px,1180px);padding-top:24px}.clips-v9-head{display:block}.clips-v9-head p{margin-top:12px}.clip-v9-card{border-radius:20px}.clip-v9-meta{padding:14px 16px;align-items:flex-start;flex-direction:column;gap:5px}.lang-switch button{padding:7px 6px;font-size:9px}}</style>`;
-const CLIP_SECTION=`<div class="clips-v9" id="klip"><div class="clips-v9-head"><div><span class="eyebrow">klip / 01</span><h3>Gece vardiyasından.</h3></div><p>Bir round, biraz kaos. Lumos tarafından kısa bir Valorant anı.</p></div><article class="clip-v9-card"><div class="clip-v9-frame"><video controls playsinline preload="metadata" poster="./assets/clip_01_poster.jpg?v=9" aria-label="Lumos Valorant klibi"><source src="./assets/clip_01.mp4?v=9" type="video/mp4">Tarayıcınız video oynatmayı desteklemiyor.</video></div><div class="clip-v9-meta"><strong>Lumos Clip #01</strong><span>VALORANT · OMEN</span></div></article></div>`;
-const LANG_SCRIPT=`<script>(()=>{
-const D={"Hakkımda":"About","Hayat":"Life","Klip":"Clip","Yayın":"Live","İletişim":"Contact","Kick'e git":"Visit Kick","aktif mod":"active mode","Aşağı in":"Scroll down","İletişime geç":"Get in touch","Gündüz rakamlar. Akşam Valorant. Arada iki teker, uzun yollar ve biraz Lumos.":"Numbers by day. Valorant by night. In between, two wheels, long roads and a little Lumos.","01 / yayın":"01 / stream","03 / dışarı":"03 / outdoors","Bisiklet & Yürüyüş":"Cycling & Walking","Reset modu":"Reset mode","04 / favori":"04 / favorites","Hikâye · maç modu":"Story · match mode","main ajan":"main agent","oyun modu":"game mode","Akşam açılan ilk oyun genelde Valorant. En çok döndüğüm iki ajan Omen ve Chamber.":"Valorant is usually the first game I launch at night. Omen and Chamber are the two agents I keep coming back to.","yayın tarafı":"stream side","Kick tarafında yayın açtığımda rota çoğunlukla yine Valorant oluyor.":"When I go live on Kick, the route usually leads back to Valorant.","01 / tanışma":"01 / intro","Mesai sonrası,":"After work,","asıl profil.":"the real profile.","Gündüz finans, akşam bambaşka bir tempo. Burada oyun, yayın ve ekran dışındaki hayatım var.":"Finance by day, a completely different pace by night. This is where gaming, streaming and life away from the screen meet.","Merhaba, ben Sertaç. Gündüz finans tarafındayım; mesai bitince rota değişiyor. Bazen bisiklet, bazen uzun bir yürüyüş, çoğu akşam da Valorant. Omen ve Chamber arasında gidip geliyorum; arada Kick'te yayını açıp geceyi uzatıyorum.":"Hi, I'm Sertaç. I work in finance during the day; once work ends, the route changes. Sometimes it's cycling, sometimes a long walk, and most evenings it's Valorant. I switch between Omen and Chamber, and every now and then I go live on Kick and stretch the night a little longer.","yayın":"stream","Yayın açtığımda buluştuğumuz yer.":"Where we meet when I go live.","main ajanlar":"main agents","Controller sakinliği, Sentinel keskinliği.":"Controller calm, Sentinel precision.","açık hava":"outdoors","Bisiklet & Uzun Yürüyüş":"Cycling & Long Walks","Kafayı sıfırladığım taraf.":"Where I reset my head.","oyun havuzu":"game pool","Valorant merkezde; diğerleri mod değiştiriyor.":"Valorant stays at the center; the others change the mood.","02 / hayat":"02 / life","Ekranın iki tarafı.":"Two sides of the screen.","Masa başından çıkınca rota bazen yola, bazen oyuna dönüyor. Amaç aynı: kafayı sıfırlamak.":"When I leave the desk, the route turns either to the road or to a game. The goal is the same: reset.","iki teker":"two wheels","Bisiklet":"Cycling","Pedala bastığım an kafam boşalır — rota fark etmez, yol olsun yeter.":"The moment I start pedaling, my head clears — the route doesn't matter, as long as there's a road.","adım adım":"step by step","Uzun yürüyüşler":"Long walks","Düşüncelerimi en iyi toparladığım yer: uzun ve sakin bir yürüyüşün ortası.":"The place I organize my thoughts best: somewhere in the middle of a long, quiet walk.","Akşam başka bir ekran.":"A different screen at night.","Ana oyun Valorant. Omen ve Chamber merkezde; PUBG, God of War ve FC 26 ise mod değiştirten üçlü.":"Valorant is the main game. Omen and Chamber are at the center; PUBG, God of War and FC 26 are the trio that changes the mood.","main sahne":"main stage","Omen ile kontrol, Chamber ile keskin oyun. Akşam modunun değişmeyen ikilisi.":"Control with Omen, precision with Chamber. The constant duo of my evening sessions.","destek oyun":"side game","Squad, paraşüt ve son çember. Kaosun en keyifli hali.":"Squads, parachutes and the final circle. Chaos at its best.","hikâye":"story","Mitoloji, ağır atmosfer ve güçlü hikâye. Favorilerden.":"Mythology, a heavy atmosphere and a powerful story. One of my favorites.","maç günü":"match day","Bir maç diye açılıp birkaç maça dönüşen klasik.":"The classic 'one match' that turns into several.","klip / 01":"clip / 01","Gece vardiyasından.":"From the night shift.","Bir round, biraz kaos. Lumos tarafından kısa bir Valorant anı.":"One round, a little chaos. A short Valorant moment from Lumos.","Bir round, biraz kaos. Lumos tarafının kısa bir Valorant anı.":"One round, a little chaos. A short Valorant moment from Lumos.","Tarayıcınız video oynatmayı desteklemiyor.":"Your browser does not support video playback.","03 / canlı":"03 / live","Yayın köşesi.":"Streaming corner.","Yayın açtığımda rozet yanar. Ana rota çoğunlukla Valorant.":"When I go live, the badge lights up. The main route is mostly Valorant.","Durum kontrol ediliyor…":"Checking status…","ŞU AN YAYINDA":"LIVE NOW","Şu an çevrimdışı":"Currently offline","● Kick Yayında":"● Live on Kick","Valorant ağırlıklı akşam yayınları. Omen, Chamber ve arada mod değiştirten diğer oyunlar.":"Evening streams focused on Valorant. Omen, Chamber and a few other games when the mood changes.","Kanala git":"Go to channel","04 / bağlantı kur":"04 / connect","Bir şey konuşalım.":"Let's talk.","Birlikte pedallamak, akşamki maça takım arkadaşı olmak ya da yayına selam bırakmak için — kapım açık.":"Whether it's riding together, teaming up for an evening match, or dropping by the stream to say hi — my door is open.","E-posta gönder":"Send email","Başa dön":"Back to top","Kopyalandı.":"Copied."};
-const originals=new WeakMap();let current='tr';const preserve=(raw,newText)=>{const l=(raw.match(/^\\s*/)||[''])[0],r=(raw.match(/\\s*$/)||[''])[0];return l+newText+r};function txNode(n,lang){if(!n||n.nodeType!==3)return;const raw=n.nodeValue||'',t=raw.trim();if(!t)return;if(lang==='en'){if(D[t]){originals.set(n,raw);n.nodeValue=preserve(raw,D[t]);}}else if(originals.has(n)){n.nodeValue=originals.get(n);}}function walk(lang){const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);let n;while(n=w.nextNode()){const p=n.parentElement;if(!p||/^(SCRIPT|STYLE|NOSCRIPT)$/.test(p.tagName)||p.closest('.lang-switch'))continue;txNode(n,lang);}}function setLang(lang){current=lang;document.documentElement.lang=lang;walk(lang);document.querySelectorAll('.lang-switch button').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));localStorage.setItem('sertacture_lang',lang);document.title=lang==='en'?'Sertaç Türe — Valorant, Outdoors & Live':'Sertaç Türe — Valorant, Doğa & Yayın';}function init(){const side=document.querySelector('.nav-side');if(side&&!document.querySelector('.lang-switch')){const box=document.createElement('div');box.className='lang-switch';box.setAttribute('aria-label','Dil / Language');box.innerHTML='<button type="button" data-lang="tr">TR</button><button type="button" data-lang="en">EN</button>';side.insertBefore(box,side.firstChild);box.addEventListener('click',e=>{const b=e.target.closest('button[data-lang]');if(b)setLang(b.dataset.lang);});}const saved=localStorage.getItem('sertacture_lang');setLang(saved==='en'?'en':'tr');const obs=new MutationObserver(ms=>{if(current!=='en')return;for(const m of ms){if(m.type==='characterData')txNode(m.target,'en');for(const a of m.addedNodes||[]){if(a.nodeType===3)txNode(a,'en');else if(a.nodeType===1){const w=document.createTreeWalker(a,NodeFilter.SHOW_TEXT);let n;while(n=w.nextNode())txNode(n,'en');}}}});obs.observe(document.body,{subtree:true,childList:true,characterData:true});}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();})();<\/script>`;
-fetch('./legacy.html?v=9',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('legacy');return r.text()}).then(html=>{html=html.replace('</head>',CLIP_STYLE+'</head>');html=html.replace('<a href="#yayin">Yayın</a>','<a href="#klip">Klip</a><a href="#yayin">Yayın</a>');html=html.replace('<section class="section live" id="yayin">',CLIP_SECTION+'<section class="section live" id="yayin">');html=html.replace("navCta.textContent = '● LIVE'","navCta.textContent = '● Kick Yayında'");html=html.replace('</body>',LANG_SCRIPT+'</body>');document.open();document.write(html);document.close();}).catch(()=>{document.body.innerHTML='<div class="boot"><span>Site yüklenemedi. Lütfen sayfayı yenileyin.</span></div>'});
-</script></body></html>
+<!DOCTYPE html>
+
+<html data-theme="dark" lang="tr">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-P242N3Z6XF"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-P242N3Z6XF');
+  </script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="#0e1411" name="theme-color"/>
+<meta content="Sertaç Türe'nin kişisel sitesi: Valorant, Lumos yayınları, oyun klipleri, bisiklet ve uzun yürüyüşler." name="description"/>
+<meta content="Sertaç Türe — Valorant, Doğa &amp; Yayın" property="og:title"/>
+<meta content="Gündüz rakamlar, akşam Valorant. Omen ve Chamber, bisiklet ve uzun yürüyüşler." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://www.sertacture.com/og_sertacture.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="https://www.sertacture.com/og_sertacture.png" name="twitter:image"/>
+<title>Sertaç Türe — Valorant, Doğa &amp; Yayın</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Playfair+Display:wght@500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+    :root{
+      --bg:#f7f2ea;
+      --bg-soft:#fbf8f2;
+      --panel:#ffffff;
+      --panel-soft:#f1eadf;
+      --ink:#101613;
+      --muted:#6d766f;
+      --line:rgba(16,22,19,.10);
+      --forest:#16211b;
+      --forest-2:#1f3028;
+      --forest-3:#2f4337;
+      --accent:#d9915c;
+      --accent-2:#f0b47e;
+      --sage:#bfd0c0;
+      --purple:#6659d8;
+      --gold:#caa15e;
+      --shadow:0 24px 70px rgba(16,22,19,.10);
+      --radius:28px;
+      --max:1180px;
+    }
+    html[data-theme="dark"]{
+      --bg:#0e1411;
+      --bg-soft:#121915;
+      --panel:#151d18;
+      --panel-soft:#1b261f;
+      --ink:#f3ede4;
+      --muted:#a0aba1;
+      --line:rgba(255,255,255,.08);
+      --forest:#18231d;
+      --forest-2:#223228;
+      --forest-3:#314438;
+      --shadow:0 34px 90px rgba(0,0,0,.30);
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+      color:var(--ink);
+      background:var(--bg);
+      line-height:1.7;
+      overflow-x:hidden;
+      transition:background .3s ease,color .3s ease;
+    }
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      opacity:.22;
+      z-index:999;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+    }
+    a{color:inherit}
+    img,svg{display:block;max-width:100%}
+    button{font:inherit;color:inherit}
+    .container{width:min(var(--max),calc(100% - 44px));margin:auto}
+    .section{padding:76px 0;position:relative}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:10px;
+      font:600 11px/1 'JetBrains Mono',monospace;
+      text-transform:uppercase;letter-spacing:.16em;color:var(--accent);
+    }
+    .eyebrow::before{content:"";width:26px;height:1px;background:currentColor;opacity:.8}
+    .section-head{display:grid;grid-template-columns:.85fr 1.15fr;gap:42px;align-items:end;margin-bottom:34px}
+    .section-head h2{font-family:'Playfair Display',serif;font-size:clamp(38px,4.8vw,62px);line-height:1.02;letter-spacing:-.04em;font-weight:600;margin-top:12px}
+    .section-head p{justify-self:end;max-width:560px;color:var(--muted);font-size:15px}
+    .panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.visible{opacity:1;transform:none}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 20px;border-radius:14px;text-decoration:none;font-weight:800;font-size:14px;transition:.25s ease;border:1px solid transparent;cursor:pointer}
+    .btn-primary{background:var(--accent);color:#1b120d}
+    .btn-primary:hover{background:var(--accent-2);transform:translateY(-2px)}
+    .btn-secondary{background:transparent;color:var(--ink);border-color:var(--line)}
+    .btn-secondary:hover{background:rgba(255,255,255,.05);transform:translateY(-2px)}
+
+    /* nav */
+    .nav-wrap{position:fixed;top:16px;left:0;right:0;z-index:100;pointer-events:none}
+    nav{
+      pointer-events:auto;
+      width:min(1080px,calc(100% - 30px));
+      margin:auto;
+      padding:10px 12px 10px 18px;
+      display:flex;align-items:center;justify-content:space-between;gap:18px;
+      border-radius:18px;
+      border:1px solid var(--line);
+      background:color-mix(in srgb, var(--panel) 78%, transparent);
+      backdrop-filter:blur(18px) saturate(145%);
+      -webkit-backdrop-filter:blur(18px) saturate(145%);
+      box-shadow:0 14px 40px rgba(0,0,0,.15);
+    }
+    .logo{text-decoration:none;font-family:'Playfair Display',serif;font-size:20px;letter-spacing:.01em;white-space:nowrap}
+    .nav-links{display:flex;gap:4px;align-items:center}
+    .nav-links a,.nav-icon{
+      text-decoration:none;border:0;background:transparent;cursor:pointer;
+      color:var(--muted);font-size:13px;font-weight:700;padding:9px 11px;border-radius:10px;transition:.25s ease;
+    }
+    .nav-links a:hover,.nav-icon:hover{color:var(--ink);background:rgba(255,255,255,.06)}
+    .nav-side{display:flex;align-items:center;gap:8px}
+    .nav-cta{background:var(--accent);color:#20150f;text-decoration:none;font-weight:800;font-size:13px;padding:10px 15px;border-radius:12px;transition:.25s ease}
+    .nav-cta:hover{transform:translateY(-1px);background:var(--accent-2)}
+
+    /* hero */
+    header{
+      position:relative;min-height:92svh;display:flex;align-items:center;overflow:hidden;
+      color:#fff;
+      background:
+        radial-gradient(circle at 84% 20%, rgba(217,145,92,.22), transparent 28%),
+        radial-gradient(circle at 18% 12%, rgba(191,208,192,.10), transparent 24%),
+        linear-gradient(140deg,#0c120f 0%,#17231d 55%,#223127 100%);
+      isolation:isolate;
+    }
+    header::before{
+      content:"";position:absolute;right:-220px;top:-170px;width:620px;height:620px;border-radius:50%;border:1px solid rgba(255,255,255,.06);
+      box-shadow:0 0 0 90px rgba(255,255,255,.018),0 0 0 180px rgba(255,255,255,.012);z-index:-1;
+    }
+    .hero{width:min(var(--max),calc(100% - 44px));margin:auto;padding:134px 0 68px;display:grid;grid-template-columns:1.03fr .97fr;gap:44px;align-items:center}
+    .hero h1{font-family:'Playfair Display',serif;font-size:clamp(58px,7.6vw,96px);line-height:.93;letter-spacing:-.05em;font-weight:600;margin:16px 0 22px}
+    .hero h1 em{font-style:normal;color:var(--accent-2)}
+    .hero-lead{max-width:620px;font-size:clamp(18px,2vw,22px);line-height:1.55;color:rgba(255,255,255,.74)}
+    .type-pill{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);font:600 11px/1 'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.13em;color:var(--accent-2)}
+    .type-pill strong{color:#fff;font-weight:600}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+    .hero-meta{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:34px}
+    .meta-item{padding:15px 15px 14px;border-radius:16px;border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.04)}
+    .meta-item small{display:block;font:600 10px/1 'JetBrains Mono',monospace;letter-spacing:.15em;text-transform:uppercase;color:var(--accent-2);margin-bottom:7px}
+    .meta-item strong{display:block;font-size:15px;color:#fff}
+    .meta-item span{display:block;font-size:12px;color:rgba(255,255,255,.62);margin-top:3px}
+
+    .hero-panel{position:relative}
+    .hero-card{border-radius:30px;overflow:hidden;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.055);box-shadow:0 40px 110px rgba(0,0,0,.34);backdrop-filter:blur(10px)}
+    .hero-visual{position:relative;aspect-ratio:1.05/1;background:#121a16;padding:18px;display:grid;grid-template-rows:1fr auto;gap:14px}
+    .hero-stage{position:relative;border-radius:22px;overflow:hidden;background:linear-gradient(145deg,#1b2720 0%,#101713 48%,#25372c 100%)}
+    .hero-stage svg{position:absolute;inset:0;width:100%;height:100%}
+    .hero-overlay{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .mini-card{padding:16px;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+    .mini-card small{display:block;font:600 10px/1 'JetBrains Mono',monospace;letter-spacing:.13em;text-transform:uppercase;color:var(--accent-2);margin-bottom:8px}
+    .mini-card p{font-size:13px;color:rgba(255,255,255,.68)}
+    .floating-tag{position:absolute;top:34px;right:-18px;padding:11px 13px;border-radius:13px;color:#fff;font:600 10px/1 'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;background:#101713;border:1px solid rgba(255,255,255,.12);box-shadow:0 16px 40px rgba(0,0,0,.28);transform:rotate(4deg)}
+
+    /* about */
+    .about{background:var(--bg)}
+    .about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:16px}
+    .about-main{padding:32px 34px}
+    .about-main p{font-size:clamp(20px,2vw,26px);line-height:1.5;letter-spacing:-.025em;max-width:760px}
+    .about-side{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .about-chip{padding:20px;border-radius:22px;background:var(--panel-soft);border:1px solid var(--line);min-height:118px}
+    .about-chip small{display:block;font:600 10px/1 'JetBrains Mono',monospace;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+    .about-chip strong{display:block;font-size:17px;line-height:1.25}
+    .about-chip p{margin-top:8px;font-size:13px;color:var(--muted)}
+
+    /* life + games */
+    .life{background:var(--forest);color:#fff;padding-bottom:72px}
+    .life .section-head p{color:rgba(255,255,255,.60)}
+    .life-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .feature-card{position:relative;min-height:330px;border-radius:24px;overflow:hidden;border:1px solid rgba(255,255,255,.10);background:#243128}
+    .feature-card svg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+    .feature-card:hover svg{transform:scale(1.035)}
+    .feature-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 34%,rgba(8,12,10,.90) 100%)}
+    .feature-copy{position:absolute;z-index:2;left:24px;right:24px;bottom:22px}
+    .feature-copy small{font:600 10px/1 'JetBrains Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-2)}
+    .feature-copy h3{font-family:'Playfair Display',serif;font-size:28px;line-height:1.08;margin:8px 0 6px}
+    .feature-copy p{font-size:13px;color:rgba(255,255,255,.68);max-width:430px}
+
+    .games-head{display:flex;align-items:end;justify-content:space-between;gap:28px;margin:34px 0 18px;padding-top:30px;border-top:1px solid rgba(255,255,255,.12)}
+    .games-head h3{font-family:'Playfair Display',serif;font-size:clamp(30px,3.1vw,42px);line-height:1.06;margin-top:10px}
+    .games-head p{max-width:460px;color:rgba(255,255,255,.58);font-size:14px}
+    .games-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}
+    .game-card{position:relative;overflow:hidden;border-radius:24px;border:1px solid rgba(255,255,255,.10);background:#1e2621;min-height:230px}
+    .game-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 28%,rgba(7,10,9,.92) 100%)}
+    .game-visual{position:absolute;inset:0}
+    .game-visual svg{width:100%;height:100%;object-fit:cover;transition:transform .55s ease}
+    .game-card:hover .game-visual svg{transform:scale(1.035)}
+    .game-copy{position:absolute;z-index:2;left:18px;right:18px;bottom:16px}
+    .game-copy small{display:block;font:600 10px/1 'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-2);margin-bottom:8px}
+    .game-copy h4{font-size:20px;line-height:1.2;margin-bottom:4px}
+    .game-copy p{font-size:12px;color:rgba(255,255,255,.68)}
+    .valorant-main{grid-column:span 12;min-height:350px;background:linear-gradient(155deg,#151b24 0%,#111318 42%,#181610 100%)}
+    .subgame{grid-column:span 4}
+    .value-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+    .value-pills span{display:inline-flex;align-items:center;padding:8px 10px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);font:600 10px/1 'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:#fff}
+
+
+    .hero-photo-pair{display:grid;grid-template-columns:1fr 1fr;gap:12px;height:100%}
+    .hero-shot{position:relative;border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,.10);min-height:420px;background:#141414}
+    .hero-shot img,.game-photo img{width:100%;height:100%;object-fit:cover;display:block}
+    .hero-shot::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,10,9,.08) 10%,rgba(7,10,9,.78) 100%)}
+    .hero-shot-copy{position:absolute;left:18px;right:18px;bottom:16px;z-index:2}
+    .hero-shot-copy small{display:block;font:600 10px/1 'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-2);margin-bottom:7px}
+    .hero-shot-copy strong{display:block;font-size:22px;line-height:1.1;color:#fff}
+    .game-photo{position:absolute;inset:0}
+    .game-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,10,9,.08) 18%,rgba(7,10,9,.92) 100%)}
+    .valorant-split{display:grid;grid-template-columns:1fr 1fr;height:100%}
+    .valorant-half{position:relative;overflow:hidden}
+    .valorant-half img{width:100%;height:100%;object-fit:cover;display:block}
+    .valorant-half::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,10,9,.06) 12%,rgba(7,10,9,.88) 100%)}
+    .valorant-half + .valorant-half{border-left:1px solid rgba(255,255,255,.08)}
+
+
+
+
+    /* clips */
+    .clips-wrap{margin-top:38px;padding-top:32px;border-top:1px solid rgba(255,255,255,.12)}
+    .clips-head{display:flex;align-items:end;justify-content:space-between;gap:28px;margin-bottom:18px}
+    .clips-head h3{font-family:'Playfair Display',serif;font-size:clamp(30px,3.1vw,42px);line-height:1.06;margin-top:10px}
+    .clips-head p{max-width:460px;color:rgba(255,255,255,.58);font-size:14px}
+    .clips-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:14px}
+    .clip-card{overflow:hidden;border-radius:24px;border:1px solid rgba(255,255,255,.10);background:#111713;box-shadow:0 24px 60px rgba(0,0,0,.18)}
+    .clip-media{position:relative;aspect-ratio:16/9;background:#070a08;overflow:hidden}
+    .clip-media video{display:block;width:100%;height:100%;object-fit:cover;background:#070a08}
+    .clip-meta{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:16px 18px 17px}
+    .clip-meta div{min-width:0}
+    .clip-meta small{display:block;font:600 10px/1 'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-2);margin-bottom:8px}
+    .clip-meta strong{display:block;color:#fff;font-size:15px;line-height:1.25}
+    .clip-meta > span{flex:none;font:600 10px/1 'JetBrains Mono',monospace;letter-spacing:.12em;color:rgba(255,255,255,.52)}
+    @media (hover:hover) and (pointer:fine){
+      .clip-card{transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease}
+      .clip-card:hover{transform:translateY(-3px);border-color:rgba(240,180,126,.24);box-shadow:0 30px 70px rgba(0,0,0,.24)}
+    }
+
+    /* live */
+    .live{background:var(--bg-soft)}
+    .live-card{padding:38px 42px;display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap}
+    .live-info h3{font-family:'Playfair Display',serif;font-size:clamp(24px,3vw,34px);font-weight:600;margin:12px 0 10px}
+    .live-info p{color:var(--muted);max-width:520px;font-size:15px}
+    .live-badge{display:inline-flex;align-items:center;gap:9px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--line);border-radius:100px;padding:7px 15px;color:var(--muted)}
+    .live-dot{width:8px;height:8px;border-radius:50%;background:var(--muted);flex:none}
+    .live-badge.is-live{border-color:rgba(240,90,90,.55);color:#F2B0A6}
+    .live-badge.is-live .live-dot{background:#F05A5A;animation:pulse 1.4s ease-in-out infinite}
+    @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(240,90,90,.5)}50%{box-shadow:0 0 0 7px rgba(240,90,90,0)}}
+
+    /* contact */
+    .contact{padding-top:0;background:var(--bg-soft)}
+    .contact-shell{position:relative;overflow:hidden;display:grid;grid-template-columns:1fr auto;align-items:center;gap:34px;min-height:260px;padding:40px 44px;border-radius:28px;color:#fff;background:linear-gradient(135deg,#111914,#223128);box-shadow:0 30px 80px rgba(17,25,20,.18)}
+    .contact-shell::before{content:"";position:absolute;width:380px;height:380px;border-radius:50%;border:1px solid rgba(255,255,255,.07);right:-120px;top:-150px;box-shadow:0 0 0 70px rgba(255,255,255,.018),0 0 0 140px rgba(255,255,255,.012)}
+    .contact-copy{position:relative;z-index:1}
+    .contact-copy h2{font-family:'Playfair Display',serif;font-size:clamp(38px,4.2vw,58px);line-height:1.04;letter-spacing:-.035em;margin:12px 0 12px}
+    .contact-copy p{max-width:600px;color:rgba(255,255,255,.60);font-size:14px}
+    .identity-row{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}
+    .identity{display:inline-flex;align-items:center;gap:8px;text-decoration:none;cursor:pointer;color:rgba(255,255,255,.76);padding:9px 12px;border-radius:11px;border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.035);font-size:12px;transition:.25s ease}
+    .identity:hover{color:#fff;border-color:rgba(217,144,90,.50);transform:translateY(-2px)}
+    .identity b{font:600 9px/1 'JetBrains Mono',monospace;color:var(--accent-2);letter-spacing:.12em;text-transform:uppercase}
+    .contact-actions{position:relative;z-index:1;display:flex;flex-direction:column;gap:10px;min-width:230px}
+    .contact-actions .btn{width:100%}
+
+    footer{padding:18px 24px 28px;background:var(--bg-soft);text-align:center;color:var(--muted);font-size:12px}
+    footer span{font:600 10px/1 'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#af7750;display:block;margin-bottom:8px}
+
+    .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(18px);opacity:0;pointer-events:none;padding:12px 16px;border-radius:14px;background:rgba(10,13,11,.92);color:#fff;border:1px solid rgba(255,255,255,.1);box-shadow:0 18px 40px rgba(0,0,0,.24);transition:.3s ease;z-index:300;font-size:13px}
+    .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+    body.neon-mode header,
+    body.neon-mode .hero-card,
+    body.neon-mode .game-card.valorant-main,
+    body.neon-mode .contact-shell,
+    body.neon-mode .live-card{
+      box-shadow:0 0 0 1px rgba(122,112,255,.16),0 0 30px rgba(88,74,255,.18),0 0 80px rgba(0,170,255,.14);
+    }
+    body.neon-mode nav,
+    body.neon-mode .panel{border-color:rgba(122,112,255,.28)}
+
+
+    .nav-icon{min-width:42px;font-size:18px;line-height:1}
+    .nav-cta.live{background:#f05a5a;color:#fff;box-shadow:0 0 0 1px rgba(240,90,90,.18), 0 0 24px rgba(240,90,90,.25)}
+    .hero-mobile-strip{display:none;gap:10px;margin-top:16px}
+    .hero-mobile-shot{position:relative;flex:1;min-height:120px;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.08);background:#131917}
+    .hero-mobile-shot img{width:100%;height:100%;object-fit:cover;display:block}
+    .hero-mobile-shot::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,10,9,.05),rgba(7,10,9,.76))}
+    .hero-mobile-shot span{position:absolute;left:14px;bottom:12px;z-index:2;color:#fff;font:700 14px/1 'Manrope',sans-serif}
+    .game-photo img{transition:transform .6s cubic-bezier(.2,.8,.2,1), filter .35s ease}
+    .game-card:hover .game-photo img{transform:scale(1.04);filter:brightness(1.04)}
+    .game-card:hover{box-shadow:0 18px 44px rgba(0,0,0,.18)}
+
+    @media (max-width:980px){
+      .section-head,.about-grid{grid-template-columns:1fr}
+      .section-head p{justify-self:start}
+      .hero{grid-template-columns:1fr;gap:34px}
+      .hero-panel{max-width:700px;margin:auto;width:100%}
+      .life-grid{grid-template-columns:1fr}
+      .subgame{grid-column:span 12}
+      .contact-shell{grid-template-columns:1fr;padding:40px 34px}
+      .contact-actions{min-width:0;flex-direction:row;flex-wrap:wrap}
+      .contact-actions .btn{width:auto}
+    }
+    @media (max-width:760px){
+      .container,.hero{width:min(var(--max),calc(100% - 30px))}
+      .section{padding:58px 0}
+      .nav-wrap{top:10px}
+      nav{padding:9px 10px 9px 14px}
+      .nav-links{display:none}
+      .nav-cta{display:none}
+      .hero{padding:112px 0 54px}
+      header{min-height:auto}
+      .hero h1{font-size:clamp(52px,16vw,78px)}
+      .hero-meta{grid-template-columns:1fr 1fr}
+      .hero-panel{display:none}
+      .hero-mobile-strip{display:grid;grid-template-columns:1fr 1fr}
+      .about-side{grid-template-columns:1fr}
+      .games-head{display:block}
+      .clips-head{display:block}
+      .clips-head p{margin-top:10px}
+      .clips-wrap{margin-top:28px;padding-top:26px}
+      .clip-meta{padding:13px 14px 14px}
+      .games-head .eyebrow{margin-bottom:10px}
+      .subgame,.valorant-main{grid-column:span 12}
+      .contact-shell{padding:30px 24px;min-height:auto}
+      .contact-actions{flex-direction:column}
+      .contact-actions .btn{width:100%}
+      .live-card{padding:28px 24px}
+    }
+    @media (max-width:520px){
+      .hero-meta{grid-template-columns:1fr}
+      .meta-item strong{font-size:14px}
+    }
+
+    /* Oyun kartlarında karakter yüzlerini kadrajda tut */
+    .valorant-half img.game-img-omen{object-position:center top}
+    .valorant-half img.game-img-chamber{object-position:center 8%}
+    .game-photo img.game-img-pubg{object-position:center 44%}
+    .game-photo img.game-img-gow{object-position:center 24%}
+    .game-photo img.game-img-fc{object-position:center 42%}
+    .valorant-main{min-height:390px}
+    @media (max-width:760px){
+      .valorant-main{min-height:340px}
+      .valorant-half img.game-img-omen{object-position:center top}
+      .valorant-half img.game-img-chamber{object-position:center 6%}
+      .game-photo img.game-img-gow{object-position:center 20%}
+    }
+
+    @media (prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*::before,*::after{animation:none !important;transition:none !important}
+      .reveal{opacity:1;transform:none}
+    }
+  
+
+    /* PREMIUM FINAL V8 */
+    :root{--ease-premium:cubic-bezier(.2,.8,.2,1)}
+    body,nav,.panel,.about-chip,.meta-item,.nav-icon,.nav-cta,.btn,.live-card,.contact-shell,.game-card,.feature-card{
+      transition:background-color .38s ease,color .38s ease,border-color .38s ease,box-shadow .38s ease,transform .38s var(--ease-premium);
+    }
+    .section:not(#hakkimda){content-visibility:auto;contain-intrinsic-size:700px}
+    .reveal{opacity:0;transform:translateY(24px) scale(.985);transition:opacity .72s var(--ease-premium),transform .72s var(--ease-premium)}
+    .reveal.visible{opacity:1;transform:translateY(0) scale(1)}
+
+    .scroll-progress{position:fixed;left:0;top:0;height:2px;width:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));z-index:500;box-shadow:0 0 14px rgba(217,145,92,.35);pointer-events:none}
+    .nav-links a{position:relative}
+    .nav-links a.active{color:var(--ink);background:rgba(255,255,255,.055)}
+    .nav-links a.active::after{content:"";position:absolute;left:50%;bottom:3px;width:4px;height:4px;border-radius:50%;background:var(--accent);transform:translateX(-50%)}
+
+    .hero-card{transform-style:preserve-3d;will-change:transform}
+    .hero-shot img,.valorant-half img,.game-photo img{will-change:transform;backface-visibility:hidden}
+    .hero-stage::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 25%,rgba(255,255,255,.055) 48%,transparent 68%);transform:translateX(-120%);animation:heroSheen 9s ease-in-out infinite}
+    @keyframes heroSheen{0%,72%{transform:translateX(-120%)}82%,100%{transform:translateX(120%)}}
+
+    .game-card{transform-style:preserve-3d;will-change:transform}
+    .game-card .game-copy{transform:translateZ(18px)}
+    .game-card:hover{border-color:rgba(240,180,126,.24);box-shadow:0 22px 54px rgba(0,0,0,.22)}
+    .game-photo img{transition:transform .75s var(--ease-premium),filter .45s ease}
+    .game-card:hover .game-photo img{transform:scale(1.055);filter:brightness(1.05) saturate(1.03)}
+    .feature-card:hover{border-color:rgba(240,180,126,.20);box-shadow:0 22px 52px rgba(0,0,0,.20)}
+
+    .hero-mobile-strip{display:none;gap:10px;margin-top:18px}
+    .hero-mobile-shot{position:relative;overflow:hidden;min-height:152px;border-radius:19px;border:1px solid rgba(255,255,255,.09);background:#111715}
+    .hero-mobile-shot img{width:100%;height:100%;object-fit:cover;display:block}
+    .hero-mobile-shot:first-child img{object-position:center 5%}
+    .hero-mobile-shot:last-child img{object-position:center 4%}
+    .hero-mobile-shot::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,8,7,0) 24%,rgba(5,8,7,.80) 100%)}
+    .hero-mobile-shot span{position:absolute;z-index:2;left:14px;bottom:12px;color:#fff;font-weight:800;font-size:14px}
+
+    .nav-icon{width:42px;height:38px;display:grid;place-items:center;padding:0;font-size:18px}
+    .nav-cta.live{background:#f05a5a;color:#fff;box-shadow:0 0 0 1px rgba(240,90,90,.18),0 0 26px rgba(240,90,90,.24)}
+
+    /* image framing: faces first */
+    .valorant-main{min-height:420px}
+    .valorant-half img.game-img-omen{object-position:center 4%}
+    .valorant-half img.game-img-chamber{object-position:center 4%}
+    .game-photo img.game-img-pubg{object-position:center 47%}
+    .game-photo img.game-img-gow{object-position:center 23%}
+    .game-photo img.game-img-fc{object-position:center 40%}
+
+    @media (max-width:760px){
+      .nav-wrap{top:8px}
+      nav{width:calc(100% - 18px);padding:8px 8px 8px 13px;border-radius:16px;gap:8px}
+      .logo{font-size:18px}
+      .nav-side{gap:5px}
+      .nav-icon{width:38px;height:36px;font-size:17px}
+      .nav-cta{display:inline-flex!important;padding:8px 10px;font-size:11px;border-radius:10px;white-space:nowrap}
+
+      .hero{padding:92px 0 44px;gap:18px}
+      .type-pill{font-size:9px;padding:8px 11px;letter-spacing:.10em}
+      .hero h1{font-size:clamp(50px,15.5vw,68px);line-height:.94;margin:13px 0 16px}
+      .hero-lead{font-size:15.5px;line-height:1.52;max-width:96%}
+      .hero-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:20px}
+      .hero-actions .btn{width:100%;min-height:44px;padding:0 12px;font-size:12px}
+      .hero-meta{grid-template-columns:1fr 1fr;gap:8px;margin-top:20px}
+      .meta-item{padding:12px;border-radius:14px;min-height:80px}
+      .meta-item small{font-size:8px;margin-bottom:5px}
+      .meta-item strong{font-size:13px;line-height:1.25}
+      .meta-item span{font-size:10px;line-height:1.25}
+      .hero-panel{display:none}
+      .hero-mobile-strip{display:grid;grid-template-columns:1fr 1fr}
+
+      .section{padding:48px 0}
+      .section-head{gap:12px;margin-bottom:24px}
+      .section-head h2{font-size:clamp(34px,10vw,46px);margin-top:8px}
+      .section-head p{font-size:13.5px;line-height:1.6}
+      .about-main{padding:23px}
+      .about-main p{font-size:18px;line-height:1.52}
+      .about-side{gap:9px}
+      .about-chip{min-height:auto;padding:16px;border-radius:18px}
+      .about-chip strong{font-size:15px}
+      .about-chip p{font-size:12px;margin-top:5px}
+
+      .life-grid{gap:10px}
+      .feature-card{min-height:255px;border-radius:20px}
+      .feature-copy{left:18px;right:18px;bottom:16px}
+      .feature-copy h3{font-size:24px}
+      .feature-copy p{font-size:12px;line-height:1.5}
+      .games-head{margin:28px 0 14px;padding-top:24px}
+      .games-head h3{font-size:34px}
+      .games-head p{font-size:12.5px;line-height:1.55;margin-top:8px}
+      .games-grid{gap:10px}
+      .valorant-main{min-height:330px}
+      .subgame{min-height:260px}
+      .game-card{border-radius:20px}
+      .game-copy{left:16px;right:16px;bottom:14px}
+      .game-copy small{font-size:8px;margin-bottom:5px}
+      .game-copy h4{font-size:18px}
+      .game-copy p{font-size:11.5px;line-height:1.45;max-width:92%}
+      .value-pills{gap:5px;margin-top:8px}
+      .value-pills span{padding:6px 8px;font-size:8px}
+      .valorant-half img.game-img-omen{object-position:center 3%}
+      .valorant-half img.game-img-chamber{object-position:center 3%}
+      .game-photo img.game-img-pubg{object-position:center 49%}
+      .game-photo img.game-img-gow{object-position:center 19%}
+      .game-photo img.game-img-fc{object-position:center 42%}
+
+      .live-card{padding:24px 20px;border-radius:22px}
+      .live-info h3{font-size:25px;margin:9px 0 6px}
+      .live-info p{font-size:12.5px}
+      .contact-shell{padding:27px 20px;border-radius:22px}
+      .contact-copy h2{font-size:38px}
+      .identity-row{gap:7px}
+      .identity{padding:8px 9px;font-size:10px}
+      footer{padding-bottom:24px}
+    }
+
+    @media (max-width:390px){
+      .hero-actions{grid-template-columns:1fr}
+      .hero-meta{grid-template-columns:1fr 1fr}
+      .hero-mobile-shot{min-height:136px}
+      .nav-cta{padding:8px 8px}
+    }
+</style>
+<link as="image" href="assets/omen.webp" rel="preload" type="image/webp"/><link as="image" href="assets/chamber.webp" rel="preload" type="image/webp"/><meta content="https://www.sertacture.com/" property="og:url"/><link href="https://www.sertacture.com/" rel="canonical"/><link href="favicon.svg" rel="icon" type="image/svg+xml"/>
+<style>
+.mobile-quick-dock{display:none}
+@media(max-width:760px){
+  body{padding-bottom:72px}
+  .mobile-quick-dock{
+    position:fixed;left:50%;bottom:12px;transform:translateX(-50%);
+    z-index:250;display:flex;align-items:center;gap:6px;
+    padding:7px;border:1px solid var(--line);border-radius:16px;
+    background:color-mix(in srgb,var(--panel) 88%,transparent);
+    backdrop-filter:blur(16px) saturate(145%);
+    -webkit-backdrop-filter:blur(16px) saturate(145%);
+    box-shadow:0 16px 40px rgba(0,0,0,.26)
+  }
+  .mobile-quick-dock a,.mobile-quick-dock button{
+    border:0;background:transparent;color:var(--ink);text-decoration:none;
+    font:800 12px/1 'Manrope',sans-serif;padding:11px 13px;border-radius:11px;
+    white-space:nowrap;cursor:pointer
+  }
+  .mobile-quick-dock .kick{background:var(--accent);color:#20150f}
+}
+</style>
+
+
+<style id="lang-switch-style">
+.lang-switch{display:flex;align-items:center;gap:2px;padding:3px;border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.035)}
+.lang-switch button{border:0;background:transparent;color:var(--muted);font:800 10px/1 'Manrope',sans-serif;letter-spacing:.04em;padding:7px 8px;border-radius:7px;cursor:pointer;transition:.2s ease}
+.lang-switch button:hover{color:var(--ink)}
+.lang-switch button.active{background:var(--accent);color:#20150f}
+@media(max-width:760px){.lang-switch button{padding:7px 6px;font-size:9px}}
+</style>
+</head>
+<body><div aria-hidden="true" class="scroll-progress" id="scrollProgress"></div>
+<div class="nav-wrap">
+<nav aria-label="Ana navigasyon">
+<a class="logo" href="#top">Sertaç Türe</a>
+<div class="nav-links">
+<a href="#hakkimda">Hakkımda</a>
+<a href="#hayat">Hayat</a>
+<a href="#klip">Klip</a>
+<a href="#yayin">Yayın</a>
+<a href="#iletisim">İletişim</a>
+</div>
+<div class="nav-side">
+<button aria-label="Tema değiştir" class="nav-icon" id="themeToggle" type="button">☾</button>
+<a class="nav-cta" href="https://kick.com/lumossnox" id="navKickCta" rel="noopener" target="_blank">Kick'e git</a>
+</div>
+</nav>
+</div>
+<header id="top">
+<div class="hero">
+<div class="hero-copy reveal">
+<div class="type-pill">aktif mod <strong id="rotator">Omen &amp; Chamber</strong></div>
+<h1>Sertaç<br/><em>Türe.</em></h1>
+<p class="hero-lead">Gündüz rakamlar. Akşam Valorant. Arada iki teker, uzun yollar ve biraz Lumos.</p>
+<div class="hero-actions">
+<a class="btn btn-primary" href="#hayat">Aşağı in <span aria-hidden="true">↘</span></a>
+<a class="btn btn-secondary" href="#iletisim">İletişime geç</a>
+</div>
+<div class="hero-meta">
+<div class="meta-item"><small>01 / yayın</small><strong>Lumos</strong><span>Kick · lumossnox</span></div>
+<div class="meta-item"><small>02 / main</small><strong>Omen · Chamber</strong><span>Controller · Sentinel</span></div>
+<div class="meta-item"><small>03 / dışarı</small><strong>Bisiklet &amp; Yürüyüş</strong><span>Reset modu</span></div>
+<div class="meta-item"><small>04 / favori</small><strong>God of War · FC 26</strong><span>Hikâye · maç modu</span></div>
+</div><div class="hero-mobile-strip"><div class="hero-mobile-shot"><img alt="Omen mobil görseli" decoding="async" fetchpriority="high" height="519" src="assets/omen.webp" width="385"/><span>Omen</span></div><div class="hero-mobile-shot"><img alt="Chamber mobil görseli" decoding="async" fetchpriority="high" height="1308" src="assets/chamber.webp" width="736"/><span>Chamber</span></div></div>
+</div>
+<div class="hero-panel reveal">
+<div class="hero-card">
+<div class="hero-visual">
+<div class="hero-stage">
+<div class="hero-photo-pair">
+<div class="hero-shot">
+<img alt="Omen görseli" decoding="async" fetchpriority="high" height="519" src="assets/omen.webp" width="385"/>
+<div class="hero-shot-copy"><small>main ajan</small><strong>Omen</strong></div>
+</div>
+<div class="hero-shot">
+<img alt="Chamber görseli" decoding="async" fetchpriority="high" height="1308" src="assets/chamber.webp" width="736"/>
+<div class="hero-shot-copy"><small>main ajan</small><strong>Chamber</strong></div>
+</div>
+</div>
+</div>
+<div class="hero-overlay">
+<div class="mini-card">
+<small>oyun modu</small>
+<p>Akşam açılan ilk oyun genelde Valorant. En çok döndüğüm iki ajan Omen ve Chamber.</p>
+</div>
+<div class="mini-card">
+<small>yayın tarafı</small>
+<p>Kick tarafında yayın açtığımda rota çoğunlukla yine Valorant oluyor.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="floating-tag">ride · play · reset</div>
+</div>
+</div>
+</header>
+<main>
+<section class="section about" id="hakkimda">
+<div class="container">
+<div class="section-head reveal">
+<div>
+<span class="eyebrow">01 / tanışma</span>
+<h2>Mesai sonrası,<br/>asıl profil.</h2>
+</div>
+<p>Gündüz finans, akşam bambaşka bir tempo. Burada oyun, yayın ve ekran dışındaki hayatım var.</p>
+</div>
+<div class="about-grid">
+<div class="panel about-main reveal">
+<p>Merhaba, ben Sertaç. Gündüz finans tarafındayım; mesai bitince rota değişiyor. Bazen bisiklet, bazen uzun bir yürüyüş, çoğu akşam da Valorant. Omen ve Chamber arasında gidip geliyorum; arada Kick'te yayını açıp geceyi uzatıyorum.</p>
+</div>
+<div class="about-side reveal">
+<article class="about-chip"><small>yayın</small><strong>Kick · lumossnox</strong><p>Yayın açtığımda buluştuğumuz yer.</p></article>
+<article class="about-chip"><small>main ajanlar</small><strong>Omen · Chamber</strong><p>Controller sakinliği, Sentinel keskinliği.</p></article>
+<article class="about-chip"><small>açık hava</small><strong>Bisiklet &amp; Uzun Yürüyüş</strong><p>Kafayı sıfırladığım taraf.</p></article>
+<article class="about-chip"><small>oyun havuzu</small><strong>Valorant · PUBG · God of War · FC 26</strong><p>Valorant merkezde; diğerleri mod değiştiriyor.</p></article>
+</div>
+</div>
+</div>
+</section>
+<section class="section life" id="hayat">
+<div class="container">
+<div class="section-head reveal">
+<div>
+<span class="eyebrow">02 / hayat</span>
+<h2>Ekranın iki tarafı.</h2>
+</div>
+<p>Masa başından çıkınca rota bazen yola, bazen oyuna dönüyor. Amaç aynı: kafayı sıfırlamak.</p>
+</div>
+<div class="life-grid">
+<article class="feature-card reveal">
+<svg aria-label="Yol kenarında bisiklet" role="img" viewbox="0 0 760 620" xmlns="http://www.w3.org/2000/svg">
+<defs><lineargradient id="bikeSky2" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#BFCAB8"></stop><stop offset="1" stop-color="#6E806E"></stop></lineargradient></defs>
+<rect fill="url(#bikeSky2)" height="620" width="760"></rect>
+<circle cx="612" cy="104" fill="#E8C58A" opacity=".86" r="62"></circle>
+<path d="M0 330 L170 160 L380 330 Z" fill="#7B8F7C"></path><path d="M245 338 L480 120 L760 338 Z" fill="#667B69"></path>
+<rect fill="#435743" height="290" width="760" y="330"></rect>
+<path d="M0 486 C176 452 310 476 760 450 L760 620 L0 620 Z" fill="#29382E"></path>
+<path d="M0 520 C220 480 510 510 760 472" opacity=".7" stroke="#DCD2C4" stroke-dasharray="38 28" stroke-width="6"></path>
+<g fill="none" stroke="#F3EDE3" stroke-linecap="round" stroke-linejoin="round" stroke-width="7" transform="translate(220 330)">
+<circle cx="70" cy="102" r="54"></circle><circle cx="245" cy="102" r="54"></circle>
+<path d="M70 102 L125 28 L186 102 L245 102 L186 34 L125 28 L149 102 Z"></path><path d="M125 28 L116 6 M106 6 H135 M186 34 L201 10 M193 10 H220"></path>
+</g>
+</svg>
+<div class="feature-copy"><small>iki teker</small><h3>Bisiklet</h3><p>Pedala bastığım an kafam boşalır — rota fark etmez, yol olsun yeter.</p></div>
+</article>
+<article class="feature-card reveal">
+<svg aria-label="Ormanda kıvrılan patika" role="img" viewbox="0 0 760 620" xmlns="http://www.w3.org/2000/svg">
+<defs><lineargradient id="walkSky2" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#DCCFB9"></stop><stop offset="1" stop-color="#7B8D78"></stop></lineargradient></defs>
+<rect fill="url(#walkSky2)" height="620" width="760"></rect>
+<circle cx="605" cy="88" fill="#E9BB72" opacity=".92" r="50"></circle>
+<path d="M0 350 L150 170 L330 350 Z" fill="#81937D"></path><path d="M230 358 L450 130 L710 358 Z" fill="#6E826F"></path>
+<rect fill="#435742" height="270" width="760" y="350"></rect>
+<g fill="#213128"><path d="M45 430 L92 220 L139 430 Z"></path><path d="M135 445 L192 195 L249 445 Z"></path><path d="M530 445 L590 180 L650 445 Z"></path><path d="M635 430 L680 235 L725 430 Z"></path></g>
+<path d="M328 620 C320 556 285 520 310 468 C336 414 423 424 438 350 L518 350 C490 452 409 492 397 620 Z" fill="#C8B7A0"></path>
+<path d="M372 580 L386 552 M379 580 L379 546 M386 580 L371 554" stroke="#202B24" stroke-linecap="round" stroke-width="4"></path>
+</svg>
+<div class="feature-copy"><small>adım adım</small><h3>Uzun yürüyüşler</h3><p>Düşüncelerimi en iyi toparladığım yer: uzun ve sakin bir yürüyüşün ortası.</p></div>
+</article>
+</div>
+<div class="games-head reveal">
+<div>
+<span class="eyebrow">oyun modu</span>
+<h3>Akşam başka bir ekran.</h3>
+</div>
+<p>Ana oyun Valorant. Omen ve Chamber merkezde; PUBG, God of War ve FC 26 ise mod değiştirten üçlü.</p>
+</div>
+<div class="games-grid">
+<article class="game-card valorant-main reveal">
+<div class="game-photo">
+<div class="valorant-split">
+<div class="valorant-half">
+<img alt="Omen görseli" class="game-img-omen" decoding="async" fetchpriority="high" height="519" src="assets/omen.webp" width="385"/>
+</div>
+<div class="valorant-half">
+<img alt="Chamber görseli" class="game-img-chamber" decoding="async" fetchpriority="high" height="1308" src="assets/chamber.webp" width="736"/>
+</div>
+</div>
+</div>
+<div class="game-copy">
+<small>main sahne</small>
+<h4>Valorant — Omen &amp; Chamber</h4>
+<p>Omen ile kontrol, Chamber ile keskin oyun. Akşam modunun değişmeyen ikilisi.</p>
+<div class="value-pills">
+<span>omen</span><span>chamber</span><span>valorant</span><span>lumos</span>
+</div>
+</div>
+</article>
+<article class="game-card subgame reveal">
+<div class="game-photo"><img alt="PUBG görseli" class="game-img-pubg" decoding="async" height="1012" loading="lazy" src="assets/pubg.webp" width="1800"/></div>
+<div class="game-copy"><small>destek oyun</small><h4>PUBG</h4><p>Squad, paraşüt ve son çember. Kaosun en keyifli hali.</p></div>
+</article>
+<article class="game-card subgame reveal">
+<div class="game-photo">
+<img alt="God of War görseli" class="game-img-gow" decoding="async" height="1000" loading="lazy" src="assets/god-of-war.webp" width="757"/>
+</div>
+<div class="game-copy"><small>hikâye</small><h4>God of War</h4><p>Mitoloji, ağır atmosfer ve güçlü hikâye. Favorilerden.</p></div>
+</article>
+<article class="game-card subgame reveal">
+<div class="game-photo">
+<img alt="FC 26 görseli" class="game-img-fc" decoding="async" height="386" loading="lazy" src="assets/fc26.webp" width="686"/>
+</div>
+<div class="game-copy"><small>maç günü</small><h4>FC 26</h4><p>Bir maç diye açılıp birkaç maça dönüşen klasik.</p></div>
+</article>
+</div><div class="clips-wrap reveal" id="klip">
+<div class="clips-head">
+<div>
+<span class="eyebrow">klip / 01</span>
+<h3>Gece vardiyasından.</h3>
+</div>
+<p>Bir round, biraz kaos. Lumos tarafının kısa bir Valorant anı.</p>
+</div>
+<div class="clips-grid">
+<article class="clip-card">
+<div class="clip-media">
+<video aria-label="Lumos Valorant klibi" controls="" playsinline="" poster="assets/clip_01_poster.jpg" preload="metadata">
+<source src="assets/clip_01.mp4" type="video/mp4"/>
+        Tarayıcınız video oynatmayı desteklemiyor.
+      </video>
+</div>
+<div class="clip-meta">
+<div>
+<small>VALORANT · OMEN</small>
+<strong>Lumos Clip #01</strong>
+</div>
+<span>00:12</span>
+</div>
+</article>
+</div>
+</div>
+</div>
+</section>
+<section class="section live" id="yayin">
+<div class="container">
+<div class="section-head reveal">
+<div>
+<span class="eyebrow">03 / canlı</span>
+<h2>Yayın köşesi.</h2>
+</div>
+<p>Yayın açtığımda rozet yanar. Ana rota çoğunlukla Valorant.</p>
+</div>
+<div class="panel live-card reveal">
+<div class="live-info">
+<span class="live-badge" id="liveBadge"><span class="live-dot"></span><span id="liveText">Durum kontrol ediliyor…</span></span>
+<h3 id="liveTitle">kick.com/lumossnox</h3>
+<p id="liveDesc">Valorant ağırlıklı akşam yayınları. Omen, Chamber ve arada mod değiştirten diğer oyunlar.</p>
+</div>
+<a class="btn btn-primary" href="https://kick.com/lumossnox" rel="noopener" target="_blank">Kanala git <span aria-hidden="true">↗</span></a>
+</div>
+</div>
+</section>
+<section class="section contact" id="iletisim">
+<div class="container">
+<div class="contact-shell reveal">
+<div class="contact-copy">
+<span class="eyebrow">04 / bağlantı kur</span>
+<h2>Bir şey konuşalım.</h2>
+<p>Birlikte pedallamak, akşamki maça takım arkadaşı olmak ya da yayına selam bırakmak için — kapım açık.</p>
+<div class="identity-row">
+<a class="identity" href="https://kick.com/lumossnox" rel="noopener" target="_blank"><b>Kick</b> lumossnox</a>
+<a class="identity" href="https://steamcommunity.com/id/Sertacture" rel="noopener" target="_blank"><b>Steam</b> Sertacture</a>
+<button class="identity" onclick="copyDiscord(this)" type="button"><b>Discord</b> <span class="copy-text">Sertacture</span></button>
+</div>
+</div>
+<div class="contact-actions">
+<a class="btn btn-primary" href="mailto:sertac.ture@hotmail.com">E-posta gönder <span aria-hidden="true">↗</span></a>
+<a class="btn btn-secondary" href="#top">Başa dön <span aria-hidden="true">↑</span></a>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer>
+<span>session / saved</span>
+    © 2026 Sertaç Türe · www.sertacture.com
+  </footer>
+<div class="toast" id="toast">Kopyalandı.</div>
+<script>
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach((el, index) => {
+      el.style.transitionDelay = `${Math.min(index % 4, 3) * 70}ms`;
+      revealObserver.observe(el);
+    });
+
+    const themeToggle = document.getElementById('themeToggle');
+    const storedTheme = localStorage.getItem('sertacture-theme');
+    if (storedTheme) document.documentElement.setAttribute('data-theme', storedTheme);
+
+    const syncThemeIcon = () => {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      themeToggle.textContent = isDark ? '☾' : '☀';
+    };
+    syncThemeIcon();
+    themeToggle.addEventListener('click', () => {
+      const root = document.documentElement;
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('sertacture-theme', next);
+      syncThemeIcon();
+      showToast(next === 'dark' ? 'Koyu mod aktif.' : 'Açık mod aktif.');
+    });
+
+    const words = ['Omen & Chamber', 'Kick / lumossnox', 'Bisiklet & Yürüyüş', 'Valorant ağırlıklı'];
+    const rotator = document.getElementById('rotator');
+    let rotatorIndex = 0;
+    setInterval(() => {
+      rotatorIndex = (rotatorIndex + 1) % words.length;
+      rotator.style.opacity = '0';
+      rotator.style.transform = 'translateY(6px)';
+      setTimeout(() => {
+        rotator.textContent = words[rotatorIndex];
+        rotator.style.opacity = '1';
+        rotator.style.transform = 'translateY(0)';
+      }, 180);
+    }, 2300);
+    rotator.style.transition = 'opacity .18s ease, transform .18s ease';
+
+    function copyDiscord(button){
+      navigator.clipboard.writeText('Sertacture').then(() => {
+        const target = button.querySelector('.copy-text');
+        const old = target.textContent;
+        target.textContent = 'Kopyalandı!';
+        showToast('Discord adı kopyalandı.');
+        setTimeout(() => target.textContent = old, 1600);
+      });
+    }
+
+    const toast = document.getElementById('toast');
+    let toastTimer;
+    function showToast(message){
+      toast.textContent = message;
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('show'), 1800);
+    }
+
+    let keyBuffer = '';
+    document.addEventListener('keydown', (e) => {
+      if (e.key.length !== 1) return;
+      keyBuffer = (keyBuffer + e.key.toLowerCase()).slice(-5);
+      if (keyBuffer === 'lumos') {
+        document.body.classList.toggle('neon-mode');
+        showToast(document.body.classList.contains('neon-mode') ? 'Lumos modu açıldı.' : 'Lumos modu kapandı.');
+      }
+    });
+
+    // Kick canlı yayın durumu
+    (async () => {
+      const badge = document.getElementById('liveBadge');
+      const text = document.getElementById('liveText');
+      if (!badge || !text) return;
+      try {
+        const r = await fetch('https://kick.com/api/v2/channels/lumossnox', {headers:{'Accept':'application/json'}});
+        if (!r.ok) throw new Error('yanıt yok');
+        const d = await r.json();
+        const navCta = document.getElementById('navKickCta');
+        if (d && d.livestream) {
+          badge.classList.add('is-live');
+          text.textContent = 'ŞU AN YAYINDA';
+          const t = document.getElementById('liveTitle');
+          if (d.livestream.session_title && t) t.textContent = d.livestream.session_title;
+          if (navCta) { navCta.textContent = '● Kick Yayında'; navCta.classList.add('live'); }
+          document.title = '● Lumos Yayında — Sertaç Türe';
+        } else {
+          text.textContent = 'Şu an çevrimdışı';
+          if (navCta) { navCta.textContent = "Kick'e git"; navCta.classList.remove('live'); }
+          document.title = 'Sertaç Türe — Valorant, Doğa & Yayın';
+        }
+      } catch (e) {
+        text.textContent = 'kick.com/lumossnox';
+        const navCta = document.getElementById('navKickCta');
+        if (navCta) { navCta.textContent = "Kick'e git"; navCta.classList.remove('live'); }
+          document.title = 'Sertaç Türe — Valorant, Doğa & Yayın';
+      }
+    })();
+  
+
+    // Premium interaction layer: desktop parallax / tilt, active nav, scroll progress.
+    const finePointer = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+    if (finePointer && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const heroCard = document.querySelector('.hero-card');
+      const heroPanel = document.querySelector('.hero-panel');
+      if (heroCard && heroPanel) {
+        heroPanel.addEventListener('pointermove', (e) => {
+          const r = heroPanel.getBoundingClientRect();
+          const x = (e.clientX - r.left) / r.width - .5;
+          const y = (e.clientY - r.top) / r.height - .5;
+          heroCard.style.transform = `perspective(1000px) rotateX(${-y*3.2}deg) rotateY(${x*4.2}deg) translateY(-2px)`;
+          heroCard.querySelectorAll('.hero-shot img').forEach((img, i) => {
+            const factor = i ? -1 : 1;
+            img.style.transform = `scale(1.025) translate(${x*7*factor}px, ${y*5}px)`;
+          });
+        });
+        heroPanel.addEventListener('pointerleave', () => {
+          heroCard.style.transform = '';
+          heroCard.querySelectorAll('.hero-shot img').forEach(img => img.style.transform = '');
+        });
+      }
+
+      document.querySelectorAll('.game-card').forEach((card) => {
+        card.addEventListener('pointermove', (e) => {
+          const r = card.getBoundingClientRect();
+          const x = (e.clientX - r.left) / r.width - .5;
+          const y = (e.clientY - r.top) / r.height - .5;
+          card.style.transform = `perspective(900px) rotateX(${-y*2.4}deg) rotateY(${x*3.2}deg) translateY(-3px)`;
+        });
+        card.addEventListener('pointerleave', () => card.style.transform = '');
+      });
+    }
+
+    const progressBar = document.getElementById('scrollProgress');
+    const updateProgress = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = max > 0 ? (window.scrollY / max) * 100 : 0;
+      progressBar.style.width = `${Math.min(100, Math.max(0,pct))}%`;
+    };
+    addEventListener('scroll', updateProgress, {passive:true});
+    addEventListener('resize', updateProgress, {passive:true});
+    updateProgress();
+
+    const navLinks = [...document.querySelectorAll('.nav-links a[href^="#"]')];
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${entry.target.id}`));
+      });
+    }, {rootMargin:'-35% 0px -58% 0px', threshold:0});
+    document.querySelectorAll('header[id], section[id]').forEach(s => sectionObserver.observe(s));
+</script>
+
+<div class="mobile-quick-dock" aria-label="Hızlı bağlantılar">
+  <a href="#klip">Klip</a>
+  <a class="kick" href="https://kick.com/lumossnox" target="_blank" rel="noopener">Kick</a>
+  <button type="button" onclick="navigator.clipboard.writeText('Sertacture'); if(window.showToast) showToast('Discord adı kopyalandı.');">Discord</button>
+</div>
+
+
+<script id="site-language-script">
+(()=>{
+const D={
+"Hakkımda":"About","Hayat":"Life","Klip":"Clip","Yayın":"Live","İletişim":"Contact","Kick'e git":"Visit Kick","aktif mod":"active mode","Aşağı in":"Scroll down","İletişime geç":"Get in touch",
+"Gündüz rakamlar. Akşam Valorant. Arada iki teker, uzun yollar ve biraz Lumos.":"Numbers by day. Valorant by night. In between, two wheels, long roads and a little Lumos.",
+"01 / yayın":"01 / stream","03 / dışarı":"03 / outdoors","Bisiklet & Yürüyüş":"Cycling & Walking","Reset modu":"Reset mode","04 / favori":"04 / favorites","Hikâye · maç modu":"Story · match mode","main ajan":"main agent","oyun modu":"game mode",
+"Akşam açılan ilk oyun genelde Valorant. En çok döndüğüm iki ajan Omen ve Chamber.":"Valorant is usually the first game I launch at night. Omen and Chamber are the two agents I keep coming back to.",
+"yayın tarafı":"stream side","Kick tarafında yayın açtığımda rota çoğunlukla yine Valorant oluyor.":"When I go live on Kick, the route usually leads back to Valorant.",
+"01 / tanışma":"01 / intro","Mesai sonrası,":"After work,","asıl profil.":"the real profile.",
+"Gündüz finans, akşam bambaşka bir tempo. Burada oyun, yayın ve ekran dışındaki hayatım var.":"Finance by day, a completely different pace by night. This is where gaming, streaming and life away from the screen meet.",
+"Merhaba, ben Sertaç. Gündüz finans tarafındayım; mesai bitince rota değişiyor. Bazen bisiklet, bazen uzun bir yürüyüş, çoğu akşam da Valorant. Omen ve Chamber arasında gidip geliyorum; arada Kick'te yayını açıp geceyi uzatıyorum.":"Hi, I'm Sertaç. I work in finance during the day; once work ends, the route changes. Sometimes it's cycling, sometimes a long walk, and most evenings it's Valorant. I switch between Omen and Chamber, and every now and then I go live on Kick and stretch the night a little longer.",
+"yayın":"stream","Yayın açtığımda buluştuğumuz yer.":"Where we meet when I go live.","main ajanlar":"main agents","Controller sakinliği, Sentinel keskinliği.":"Controller calm, Sentinel precision.",
+"açık hava":"outdoors","Bisiklet & Uzun Yürüyüş":"Cycling & Long Walks","Kafayı sıfırladığım taraf.":"Where I reset my head.","oyun havuzu":"game pool","Valorant merkezde; diğerleri mod değiştiriyor.":"Valorant stays at the center; the others change the mood.",
+"02 / hayat":"02 / life","Ekranın iki tarafı.":"Two sides of the screen.","Masa başından çıkınca rota bazen yola, bazen oyuna dönüyor. Amaç aynı: kafayı sıfırlamak.":"When I leave the desk, the route turns either to the road or to a game. The goal is the same: reset.",
+"iki teker":"two wheels","Bisiklet":"Cycling","Pedala bastığım an kafam boşalır — rota fark etmez, yol olsun yeter.":"The moment I start pedaling, my head clears — the route doesn't matter, as long as there's a road.",
+"adım adım":"step by step","Uzun yürüyüşler":"Long walks","Düşüncelerimi en iyi toparladığım yer: uzun ve sakin bir yürüyüşün ortası.":"The place I organize my thoughts best: somewhere in the middle of a long, quiet walk.",
+"Akşam başka bir ekran.":"A different screen at night.","Ana oyun Valorant. Omen ve Chamber merkezde; PUBG, God of War ve FC 26 ise mod değiştirten üçlü.":"Valorant is the main game. Omen and Chamber are at the center; PUBG, God of War and FC 26 are the trio that changes the mood.",
+"main sahne":"main stage","Omen ile kontrol, Chamber ile keskin oyun. Akşam modunun değişmeyen ikilisi.":"Control with Omen, precision with Chamber. The constant duo of my evening sessions.",
+"destek oyun":"side game","Squad, paraşüt ve son çember. Kaosun en keyifli hali.":"Squads, parachutes and the final circle. Chaos at its best.",
+"hikâye":"story","Mitoloji, ağır atmosfer ve güçlü hikâye. Favorilerden.":"Mythology, a heavy atmosphere and a powerful story. One of my favorites.",
+"maç günü":"match day","Bir maç diye açılıp birkaç maça dönüşen klasik.":"The classic 'one match' that turns into several.",
+"klip / 01":"clip / 01","Gece vardiyasından.":"From the night shift.","Bir round, biraz kaos. Lumos tarafından kısa bir Valorant anı.":"One round, a little chaos. A short Valorant moment from Lumos.","Bir round, biraz kaos. Lumos tarafının kısa bir Valorant anı.":"One round, a little chaos. A short Valorant moment from Lumos.",
+"Tarayıcınız video oynatmayı desteklemiyor.":"Your browser does not support video playback.",
+"03 / canlı":"03 / live","Yayın köşesi.":"Streaming corner.","Yayın açtığımda rozet yanar. Ana rota çoğunlukla Valorant.":"When I go live, the badge lights up. The main route is mostly Valorant.",
+"Durum kontrol ediliyor…":"Checking status…","ŞU AN YAYINDA":"LIVE NOW","Şu an çevrimdışı":"Currently offline","● Kick Yayında":"● Live on Kick",
+"Valorant ağırlıklı akşam yayınları. Omen, Chamber ve arada mod değiştirten diğer oyunlar.":"Evening streams focused on Valorant. Omen, Chamber and a few other games when the mood changes.",
+"Kanala git":"Go to channel","04 / bağlantı kur":"04 / connect","Bir şey konuşalım.":"Let's talk.",
+"Birlikte pedallamak, akşamki maça takım arkadaşı olmak ya da yayına selam bırakmak için — kapım açık.":"Whether it's riding together, teaming up for an evening match, or dropping by the stream to say hi — my door is open.",
+"E-posta gönder":"Send email","Başa dön":"Back to top","Kopyalandı.":"Copied."
+};
+const originals=new WeakMap();let current='tr';
+const preserve=(raw,newText)=>{const l=(raw.match(/^\\s*/)||[''])[0],r=(raw.match(/\\s*$/)||[''])[0];return l+newText+r};
+function txNode(n,lang){if(!n||n.nodeType!==3)return;const raw=n.nodeValue||'',t=raw.trim();if(!t)return;if(lang==='en'){if(D[t]){if(!originals.has(n)) originals.set(n,raw);n.nodeValue=preserve(raw,D[t]);}}else if(originals.has(n)){n.nodeValue=originals.get(n);}}
+function walk(lang){const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);let n;while(n=w.nextNode()){const p=n.parentElement;if(!p||/^(SCRIPT|STYLE|NOSCRIPT)$/.test(p.tagName)||p.closest('.lang-switch'))continue;txNode(n,lang);}}
+function setLang(lang){current=lang;document.documentElement.lang=lang;walk(lang);document.querySelectorAll('.lang-switch button').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));localStorage.setItem('sertacture_lang',lang);document.title=lang==='en'?'Sertaç Türe — Valorant, Outdoors & Live':'Sertaç Türe — Valorant, Doğa & Yayın';}
+function init(){const side=document.querySelector('.nav-side');if(side&&!document.querySelector('.lang-switch')){const box=document.createElement('div');box.className='lang-switch';box.setAttribute('aria-label','Dil / Language');box.innerHTML='<button type="button" data-lang="tr">TR</button><button type="button" data-lang="en">EN</button>';side.insertBefore(box,side.firstChild);box.addEventListener('click',e=>{const b=e.target.closest('button[data-lang]');if(b)setLang(b.dataset.lang);});}
+const saved=localStorage.getItem('sertacture_lang');setLang(saved==='en'?'en':'tr');
+const obs=new MutationObserver(ms=>{if(current!=='en')return;for(const m of ms){if(m.type==='characterData')txNode(m.target,'en');for(const a of m.addedNodes||[]){if(a.nodeType===3)txNode(a,'en');else if(a.nodeType===1){const w=document.createTreeWalker(a,NodeFilter.SHOW_TEXT);let n;while(n=w.nextNode())txNode(n,'en');}}}});obs.observe(document.body,{subtree:true,childList:true,characterData:true});}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
+})();
+</script>
+</body>
+</html>
