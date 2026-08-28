@@ -1,0 +1,57 @@
+name: Fix language switch
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/fix-language-switch.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fix language script newlines
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+          marker = r'\n<script id="site-language-script">'
+          if marker not in s:
+              raise SystemExit('language script marker not found')
+          start = s.index(marker)
+          end_marker = r'</script>\n</body>'
+          end = s.index(end_marker, start) + len(r'</script>\n')
+          block = s[start:end].replace(r'\n', '\n')
+          s = s[:start] + block + s[end:]
+          p.write_text(s, encoding='utf-8')
+          PY
+
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+          s = Path('index.html').read_text(encoding='utf-8')
+          m = re.search(r'<script id="site-language-script">(.*?)</script>', s, re.S)
+          if not m:
+              raise SystemExit('language script missing after fix')
+          Path('/tmp/lang.js').write_text(m.group(1), encoding='utf-8')
+          PY
+          node --check /tmp/lang.js
+          rm -f .github/workflows/fix-language-switch.yml
+
+      - name: Commit fix
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Fix TR EN language switch"
+          git push
