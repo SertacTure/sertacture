@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://sertacture.com/sitemap.xml
