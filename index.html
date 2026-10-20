@@ -599,6 +599,14 @@
 </nav>
 </div>
 <header id="top">
+<video autoplay="" class="hero-video" id="heroVideo" muted="" aria-hidden="true" playsinline="" poster="hero_masa_ilk.jpg" preload="auto"></video>
+<div class="hero-shade"></div>
+<script>
+(function(){var v=document.getElementById('heroVideo');
+if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){v.removeAttribute('autoplay');v.setAttribute('poster','hero_masa_son.jpg');v.setAttribute('data-still','1');return;}
+v.src=window.matchMedia('(max-width:760px)').matches?'hero_masa_mobil.mp4':'hero_masa.mp4';})();
+</script>
+<button class="hero-replay" id="heroReplay" type="button"><span aria-hidden="true">↻</span> Tekrar izle</button>
 <div class="hero">
 <div class="hero-copy reveal">
 <div class="type-pill">ilgi alanları <strong id="rotator">Muhasebe &amp; Finans</strong></div>
@@ -613,36 +621,7 @@
 <div class="meta-item"><small>02 / oyun</small><strong>Omen · Chamber</strong><span>Controller · Sentinel</span></div>
 <div class="meta-item"><small>03 / dışarı</small><strong>Bisiklet · Yürüyüş · Adrenalin</strong><span>Açık hava</span></div>
 <div class="meta-item"><small>04 / favori</small><strong>God of War · FC 26</strong><span>Hikâye · maç modu</span></div>
-</div><div class="hero-mobile-strip"><div class="hero-mobile-shot"><img alt="Sertaç bisiklet molasında" decoding="async" fetchpriority="high" height="825" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-copy="0" width="1100"/><span>Yol</span></div><div class="hero-mobile-shot"><img alt="Sertaç Babadağ pistinde" decoding="async" fetchpriority="high" height="825" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-copy="1" width="1100"/><span>Gökyüzü</span></div></div>
 </div>
-<div class="hero-panel reveal">
-<div class="hero-card">
-<div class="hero-visual">
-<div class="hero-stage">
-<div class="hero-photo-pair">
-<div class="hero-shot">
-<img alt="Sertaç bisiklet molasında" decoding="async" fetchpriority="high" height="825" src="/assets/embedded/c298db09981e.jpg" width="1100"/>
-<div class="hero-shot-copy"><small>açık hava</small><strong>Yol</strong></div>
-</div>
-<div class="hero-shot">
-<img alt="Sertaç Babadağ yamaç paraşütü pistinde" decoding="async" fetchpriority="high" height="825" src="/assets/embedded/283c16e36a39.jpg" width="1100"/>
-<div class="hero-shot-copy"><small>yer &amp; gök</small><strong>Gökyüzü</strong></div>
-</div>
-</div>
-</div>
-<div class="hero-overlay">
-<div class="mini-card">
-<small>iş &amp; iş dışı</small>
-<p>Muhasebe işimin merkezinde; oyun, bisiklet ve yürüyüş ise iş dışında en çok zaman ayırdığım alanlar.</p>
-</div>
-<div class="mini-card">
-<small>yayın</small>
-<p>Kick'te ağırlıklı olarak oyun yayını yapıyorum. Yayın sırasında sohbet de işin önemli bir parçası.</p>
-</div>
-</div>
-</div>
-</div>
-
 </div>
 </div>
 </header>
@@ -1065,7 +1044,7 @@ const D={
 "03 / canlı":"03 / live","Yayın köşesi.":"Streaming corner.","Yayın açtığımda rozet yanar. Ana rota çoğunlukla Valorant.":"When I go live, the badge lights up. The main route is mostly Valorant.",
 "Durum kontrol ediliyor…":"Checking status…","ŞU AN YAYINDA":"LIVE NOW","Şu an çevrimdışı":"Currently offline","● Kick Yayında":"● Live on Kick",
 "Valorant ağırlıklı akşam yayınları. Omen, Chamber ve arada mod değiştirten diğer oyunlar.":"Evening streams focused on Valorant. Omen, Chamber and a few other games when the mood changes.",
-"Kanala git":"Go to channel","04 / bağlantı kur":"04 / connect","İş ve profesyonel konular için e-posta, oyun ve yayın için Kick ya da Discord üzerinden ulaşabilirsiniz.":"For business and professional matters, reach me by email; for gaming and streaming, via Kick or Discord.",
+"Kanala git":"Go to channel","Tekrar izle":"Replay","04 / bağlantı kur":"04 / connect","İş ve profesyonel konular için e-posta, oyun ve yayın için Kick ya da Discord üzerinden ulaşabilirsiniz.":"For business and professional matters, reach me by email; for gaming and streaming, via Kick or Discord.",
 "Akşamki maça takım arkadaşı olmak ya da yayına selam bırakmak için — kapım açık.":"Whether it's teaming up for an evening match or dropping by the stream to say hi — my door is open.",
 "E-posta gönder":"Send email","E-posta":"Email","Yol":"Road","Gökyüzü":"Sky","açık hava":"outdoors","iş & iş dışı":"work & off work","Fotoğrafa dokun ya da kaydır":"Tap or swipe the photo","ev ekibi":"home crew","Dört patili ekip.":"The four-pawed crew.","Evin asıl sahipleri. Karta tıkla, albüm açılsın.":"The real owners of the house. Tap a card to open the album.","kıdemli":"senior","Evin en kıdemlisi; soyadını resmen almış tek üye. Sakin, ağırbaşlı, her şeyden haberdar.":"The most senior member — the only one with an official surname. Calm, dignified, aware of everything.","gözcü":"lookout","Dolap üstleri dahil evin bütün yükseklikleri onun bölgesi. Her şeyi yukarıdan izler.":"Every high spot in the house, wardrobe tops included, is his territory. Watches everything from above.","hanımefendi":"the lady","Mavi gözlü hanımefendi. Tasmasıyla parka çıkar, kazağıyla poz verir.":"The blue-eyed lady of the house. Goes to the park on a leash, poses in her sweater.","afacan":"the rascal","İsim konusunda bir türlü karar kılınamadı; adı İsimsiz kaldı. Enerjisi adının aksine gayet net.":"No one could ever settle on a name, so his name became Nameless. His energy, unlike his name, is very clear.","Muhasebe & Finans":"Accounting & Finance","Sunucuya katıl":"Join the server","Başa dön":"Back to top","Kopyalandı.":"Copied."
 };
@@ -1080,6 +1059,19 @@ const obs=new MutationObserver(ms=>{if(current!=='en')return;for(const m of ms){
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
 })();
 </script>
+<style id="hero-video-css">
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% 50%;z-index:-2;background:#0c120f}
+.hero-shade{position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,rgba(15,22,18,.78) 0%,rgba(15,22,18,.45) 34%,rgba(15,22,18,0) 60%),linear-gradient(0deg,rgba(15,22,18,.9) 0%,rgba(15,22,18,0) 28%)}
+.hero-replay{position:absolute;right:22px;bottom:28px;z-index:3;display:inline-flex;align-items:center;gap:7px;padding:9px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.22);background:rgba(15,22,18,.55);color:#fff;font:600 11px/1 'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:background .25s ease,border-color .25s ease}
+.hero-replay:hover{background:rgba(15,22,18,.78);border-color:rgba(240,180,126,.55)}
+.hero-replay[hidden]{display:none}
+@media (max-width:760px){
+header{min-height:100svh;align-items:flex-end}
+.hero-video{object-position:82% 50%}
+.hero-shade{background:linear-gradient(0deg,rgba(15,22,18,.95) 0%,rgba(15,22,18,.7) 42%,rgba(15,22,18,.1) 75%)}
+.hero-replay{right:14px;bottom:100px}
+}
+</style>
 <style id="lumos-bot-css">
 #lbot-btn{position:fixed;right:22px;bottom:22px;width:60px;height:60px;border-radius:50%;background:#243128;border:1px solid rgba(240,180,126,.45);cursor:pointer;z-index:9999;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 34px rgba(0,0,0,.45);transition:transform .25s}
 #lbot-btn:hover{transform:scale(1.08)}
@@ -1234,9 +1226,11 @@ document.addEventListener('keydown',function(e){ if(!box.classList.contains('aci
  if(e.key==='ArrowLeft'){ ix=(ix-1+liste.length)%liste.length; goster(); } });
 })();
 </script>
-<script id="hero-copy-js">
-(function(){var d=document.querySelectorAll('.hero-shot img'),m=document.querySelectorAll('.hero-mobile-shot img[data-copy]');
-m.forEach(function(x){var i=+x.getAttribute('data-copy');if(d[i])x.src=d[i].src;});})();
+<script id="hero-video-js">
+(function(){var v=document.getElementById('heroVideo'),b=document.getElementById('heroReplay');if(!v||!b)return;
+if(v.getAttribute('data-still')){b.hidden=true;return;}
+b.addEventListener('click',function(){v.currentTime=0;var p=v.play();if(p&&p.catch)p.catch(function(){});});
+})();
 </script>
 </body>
 </html>
