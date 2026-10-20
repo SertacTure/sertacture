@@ -603,7 +603,6 @@
 <div class="hero-shade"></div>
 <script>
 (function(){var v=document.getElementById('heroVideo');
-if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){v.removeAttribute('autoplay');v.setAttribute('poster','hero_masa_son.jpg');v.setAttribute('data-still','1');return;}
 v.src=window.matchMedia('(max-width:760px)').matches?'hero_masa_mobil.mp4':'hero_masa.mp4';})();
 </script>
 <button class="hero-replay" id="heroReplay" type="button"><span aria-hidden="true">↻</span> Tekrar izle</button>
@@ -644,6 +643,18 @@ v.src=window.matchMedia('(max-width:760px)').matches?'hero_masa_mobil.mp4':'hero
 <article class="about-chip"><small>main ajanlar</small><strong>Omen · Chamber</strong><p>Valorant'ta ağırlıklı olarak Omen ve Chamber oynuyorum.</p></article>
 <article class="about-chip"><small>açık hava</small><strong>Bisiklet &amp; Uzun Yürüyüş</strong><p>Bilgisayar dışında en çok zaman ayırdığım alan.</p></article>
 <article class="about-chip"><small>oyun havuzu</small><strong>Valorant · PUBG · God of War · FC 26</strong><p>Valorant ağırlıklı olmak üzere farklı türlerde oyunlar oynuyorum.</p></article>
+</div>
+</div>
+<div class="about-photos reveal">
+<div class="hero-photo-pair">
+<div class="hero-shot">
+<img alt="Sertaç bisiklet molasında" decoding="async" height="825" loading="lazy" src="/assets/embedded/c298db09981e.jpg" width="1100"/>
+<div class="hero-shot-copy"><small>açık hava</small><strong>Yol</strong></div>
+</div>
+<div class="hero-shot">
+<img alt="Sertaç Babadağ yamaç paraşütü pistinde" decoding="async" height="825" loading="lazy" src="/assets/embedded/283c16e36a39.jpg" width="1100"/>
+<div class="hero-shot-copy"><small>yer &amp; gök</small><strong>Gökyüzü</strong></div>
+</div>
 </div>
 </div>
 <div class="games-head cats-head reveal">
@@ -1060,16 +1071,18 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 })();
 </script>
 <style id="hero-video-css">
+.about-photos{margin-top:16px}
 .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% 50%;z-index:-2;background:#0c120f}
 .hero-shade{position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,rgba(15,22,18,.78) 0%,rgba(15,22,18,.45) 34%,rgba(15,22,18,0) 60%),linear-gradient(0deg,rgba(15,22,18,.9) 0%,rgba(15,22,18,0) 28%)}
 .hero-replay{position:absolute;right:22px;bottom:28px;z-index:3;display:inline-flex;align-items:center;gap:7px;padding:9px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.22);background:rgba(15,22,18,.55);color:#fff;font:600 11px/1 'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:background .25s ease,border-color .25s ease}
 .hero-replay:hover{background:rgba(15,22,18,.78);border-color:rgba(240,180,126,.55)}
-.hero-replay[hidden]{display:none}
 @media (max-width:760px){
 header{min-height:100svh;align-items:flex-end}
 .hero-video{object-position:82% 50%}
 .hero-shade{background:linear-gradient(0deg,rgba(15,22,18,.95) 0%,rgba(15,22,18,.7) 42%,rgba(15,22,18,.1) 75%)}
 .hero-replay{right:14px;bottom:100px}
+.about-photos .hero-photo-pair{grid-template-columns:1fr}
+.about-photos .hero-shot{min-height:260px}
 }
 </style>
 <style id="lumos-bot-css">
@@ -1228,7 +1241,6 @@ document.addEventListener('keydown',function(e){ if(!box.classList.contains('aci
 </script>
 <script id="hero-video-js">
 (function(){var v=document.getElementById('heroVideo'),b=document.getElementById('heroReplay');if(!v||!b)return;
-if(v.getAttribute('data-still')){b.hidden=true;return;}
 b.addEventListener('click',function(){v.currentTime=0;var p=v.play();if(p&&p.catch)p.catch(function(){});});
 })();
 </script>
